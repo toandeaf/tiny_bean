@@ -1,27 +1,20 @@
-import tinyBeanLogo from './assets/coffee-bean.png';
 import './App.css';
-import Button from './Button.tsx';
+import LandingPage from './LandingPage.tsx';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import OrderViewPage from './OrderViewPage.tsx';
+import OrderPlacePage from './OrderPlacePage.tsx';
 
 function App() {
   return (
-    <div className={'container'}>
-      <div>
-        <div>
-          <a target="_blank">
-            <img
-              src={tinyBeanLogo}
-              className="logo react"
-              alt="tiny bean logo"
-            />
-          </a>
-        </div>
-        <h1>tinyBean</h1>
-
-        <p className="subtitle">Lightweight coffee processing software.</p>
-        <Button text={'Place Orders'} primary />
-        <Button text={'View Orders'} />
+    <Router>
+      <div className={'container'}>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/orders/place" element={<OrderPlacePage />} />
+          <Route path="/orders/view" element={<OrderViewPage />} />
+        </Routes>
       </div>
-    </div>
+    </Router>
   );
 }
 

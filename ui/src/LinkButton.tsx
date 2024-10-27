@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 
 interface Props {
   text: string;
@@ -6,15 +7,15 @@ interface Props {
   primary?: boolean;
 }
 
-const Button: FC<Props> = ({ primary, text, href }) => {
+const LinkButton: FC<Props> = ({ primary, text, href }) => {
   return (
-    <a
-      href={href}
+    <Link
+      to={href || '/'}
       className={`button button-${primary ? 'primary' : 'secondary'} button-shadow`}
     >
       {text}
-    </a>
+    </Link>
   );
 };
 
-export default Button;
+export default LinkButton;
