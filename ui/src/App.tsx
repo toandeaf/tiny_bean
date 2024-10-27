@@ -7,13 +7,11 @@ import OrderPlacePage from './OrderPlacePage.tsx';
 function App() {
   return (
     <Router>
-      <div className={'container'}>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/orders/place" element={<OrderPlacePage />} />
-          <Route path="/orders/view" element={<OrderViewPage />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/orders/place" element={<OrderPlacePage />} />
+        <Route path="/orders/view" element={<OrderViewPage />} />
+      </Routes>
     </Router>
   );
 }

@@ -1,0 +1,85 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.card {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(76, 64, 51, 0.2);
+    border-radius: 0.5em;
+    margin: 10px;
+    transition: width 0.3s ease, height 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    overflow: hidden;
+    text-align: center;
+}
+
+.card.expanded {
+    width: 500px;
+    height: 600px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    display: grid;
+}
+
+.card:not(.expanded) {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.card:not(.expanded):hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px) rotate(-2deg);
+}
+
+.card-img {
+    height: 5em;
+    width: 5em;
+    transition: transform 0.3s ease;
+}
+
+.card-title {
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+    color: #ffffff;
+    transition: font-size 0.3s ease;
+}
+
+.card.expanded .card-title {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.card.expanded .card-img {
+    transform: scale(1.5);
+}
+
+.options {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.options button {
+    padding: 8px 16px;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+.options button:hover {
+    background-color: #555;
+}
