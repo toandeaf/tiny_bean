@@ -1,0 +1,55 @@
+.options {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    gap: 10px;
+}
+
+.option-title {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: -0.7em;
+}
+
+.extra-button {
+    width: 9em;
+    padding: 8px 16px;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+    margin-bottom: 1em;
+}
+
+.options button {
+    padding: 8px 16px;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+.options button:hover {
+    background-color: #555;
+}
+
+.text-option {
+    padding: 8px 16px;
+    background-color: #444;
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+.text-option:hover {
+    background-color: #555;
+}
