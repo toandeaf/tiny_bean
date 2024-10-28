@@ -1,3 +1,9 @@
+export interface OrderOption {
+  imageSrc: string;
+  title: string;
+  type: OrderType;
+}
+
 export interface Order {
   type: OrderType;
   numberOfShots: number;

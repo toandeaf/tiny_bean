@@ -2,7 +2,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
 }
 
 .card {
@@ -20,21 +19,10 @@
     cursor: pointer;
     overflow: hidden;
     text-align: center;
-}
-
-.card.expanded {
-    width: 500px;
-    height: 600px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    display: grid;
-}
-
-.card:not(.expanded) {
     opacity: 0.8;
-    transition: opacity 0.3s ease;
 }
 
-.card:not(.expanded):hover {
+.card:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     transform: translateY(-5px) rotate(-2deg);
 }
@@ -51,15 +39,6 @@
     text-align: center;
     color: #ffffff;
     transition: font-size 0.3s ease;
-}
-
-.card.expanded .card-title {
-    font-size: 24px;
-    margin-top: 20px;
-}
-
-.card.expanded .card-img {
-    transform: scale(1.5);
 }
 
 .options {

@@ -1,4 +1,4 @@
-import Banner from './Banner.tsx';
+import Banner from '../components/Banner.tsx';
 
 const OrderViewPage = () => {
   return (

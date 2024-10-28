@@ -1,0 +1,19 @@
+.card-banner {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 2em;
+    padding-top: 0.5em;
+    width: 100%;
+}
+
+.card-banner-img {
+    height: 2em;
+    width: 2em;
+    transition: transform 0.3s ease;
+}
+
+.card-banner-title {
+    padding: 10px;
+    font-size: 1em;
+}
