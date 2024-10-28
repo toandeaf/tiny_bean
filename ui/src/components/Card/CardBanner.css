@@ -1,8 +1,15 @@
 .card-banner {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     width: 100%;
+    gap: 1em;
+}
+
+.card-banner-type {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .card-banner-img {
