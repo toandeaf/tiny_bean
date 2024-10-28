@@ -1,6 +1,7 @@
 import './Configs.css';
 
 const Size = () => {
+  // TODO - replace these wee circles with coffee cups with letters?
   return (
     <div
       style={{
