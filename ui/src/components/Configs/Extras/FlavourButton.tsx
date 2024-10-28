@@ -1,23 +1,17 @@
-import '../Configs.css';
+import './Extras.css';
 import { FC } from 'react';
 import hazelnut from '../../../assets/hazelnut.png';
 
 const FlavourButton: FC = () => {
   return (
     <button className={'extra-button'}>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.5em',
-        }}
-      >
+      <div className={'extra-button-elements'}>
         <img
+          className={'extra-button-image'}
           src={hazelnut}
-          alt="lilpic"
-          style={{ height: '1.5em', width: '1.5em' }}
+          alt="flavour picture"
         />
-        <div>Flavour</div>
+        <div>Add-ons</div>
       </div>
     </button>
   );

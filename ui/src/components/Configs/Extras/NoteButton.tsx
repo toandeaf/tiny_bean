@@ -5,17 +5,11 @@ import notepad from '../../../assets/notepad.png';
 const FlavourButton: FC = () => {
   return (
     <button className={'extra-button'}>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.5em',
-        }}
-      >
+      <div className={'extra-button-elements'}>
         <img
+          className={'extra-button-image'}
           src={notepad}
-          alt="lilpic"
-          style={{ height: '1.5em', width: '1.5em' }}
+          alt="note picture"
         />
         <div>Note</div>
       </div>

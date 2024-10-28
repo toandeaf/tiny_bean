@@ -92,3 +92,13 @@
     background-color: #444444;
     border-color: #666666;
 }
+
+.button-negative {
+    background-color: #4a1d1d;
+    border-color: #6e2b2b;
+}
+
+.button-negative:hover {
+    background-color: #6c2a2a;
+    border-color: #9f3e3e;
+}
