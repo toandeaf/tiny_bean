@@ -1,5 +1,4 @@
 .add-on-option {
-    /*width: 8em;*/
     padding: 8px 16px;
     background-color: #444;
     color: white;
@@ -38,5 +37,5 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 0.5em;
+    width: 100%;
 }

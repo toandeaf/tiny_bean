@@ -11,8 +11,8 @@
 }
 
 .modal-content {
-    left: 1em;
-    right: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
     background-color: #252019;
     padding: 20px;
     border-radius: 5px;

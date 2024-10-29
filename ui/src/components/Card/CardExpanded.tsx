@@ -12,11 +12,11 @@ const CardExpanded: FC<Omit<CardProps, 'onClick'>> = ({ option }) => (
   <div key={option.title} className="card-expanded">
     <div className={'card-expanded-content'}>
       <CardBanner title={option.title} imageSrc={option.imageSrc} />
-
       <Shots />
-      <AddOnSection title={'Milks'} options={MILKS} />
+      <AddOnSection title={'Milk'} options={MILKS} />
       <Extras />
     </div>
+
     <ActionButtons
       primaryText={'Add order'}
       primaryAction={() => {}}

@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+    margin-top: -0.8em;
 }
 
 .extras-buttons {
@@ -21,7 +22,6 @@
     cursor: pointer;
     font-size: 14px;
     transition: background-color 0.2s ease;
-    margin-bottom: 1em;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
