@@ -1,14 +1,24 @@
 import './Configs.css';
 import ConfigContainer from './ConfigContainer';
+import { useState } from 'react';
+
+const SHOTS = [1, 2, 3, 4, 5];
 
 const Shots = () => {
+  const [shots, setShots] = useState<number>(2);
+
   return (
     <ConfigContainer title={'Shots'}>
-      <button>1</button>
-      <button>2</button>
-      <button>3</button>
-      <button>4</button>
-      <button>5</button>
+      {SHOTS.map((shot) => {
+        return (
+          <button
+            className={`size-button ${shots === shot ? 'selected' : ''}`}
+            onClick={() => setShots(shot)}
+          >
+            {shot}
+          </button>
+        );
+      })}
     </ConfigContainer>
   );
 };
