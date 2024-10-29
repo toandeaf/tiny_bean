@@ -1,13 +1,31 @@
 import { FC } from 'react';
 
-const ActionButtons: FC = () => {
+interface Props {
+  primaryText: string;
+  cancelText: string;
+  primaryAction: () => void;
+  cancelAction: () => void;
+}
+
+const ActionButtons: FC<Props> = ({
+  primaryText,
+  primaryAction,
+  cancelText,
+  cancelAction,
+}) => {
   return (
     <div style={{ display: 'flex', marginBottom: '1em' }}>
-      <button className={`button button-negative button-shadow`}>
-        Cancel Order
+      <button
+        className={`button button-negative button-shadow`}
+        onClick={cancelAction}
+      >
+        {cancelText}
       </button>
-      <button className={`button button-primary button-shadow`}>
-        Add to Order
+      <button
+        className={`button button-primary button-shadow`}
+        onClick={primaryAction}
+      >
+        {primaryText}
       </button>
     </div>
   );

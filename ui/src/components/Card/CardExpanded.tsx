@@ -17,7 +17,12 @@ const CardExpanded: FC<Omit<CardProps, 'onClick'>> = ({ option }) => {
         <MilkType />
         <Extras />
       </div>
-      <ActionButtons />
+      <ActionButtons
+        primaryText={'Add order'}
+        primaryAction={() => {}}
+        cancelText={'Cancel order'}
+        cancelAction={() => {}}
+      />
     </div>
   );
 };
