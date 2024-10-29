@@ -15,7 +15,7 @@
 }
 
 .extra-button {
-    width: 9em;
+    width: 8em;
     padding: 8px 16px;
     background-color: #444;
     color: white;
@@ -35,10 +35,11 @@
 .extra-button-elements {
     display: flex;
     align-items: center;
+    flex-direction: column;
     gap: 0.5em;
 }
 
 .extra-button-image {
-    height: 1.5em;
-    width: 1.5em;
+    height: 2em;
+    width: 2em;
 }

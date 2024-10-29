@@ -1,13 +1,13 @@
-import FlavourButton from './FlavourButton.tsx';
+import AddOns from './AddOns.tsx';
 import NoteButton from './NoteButton.tsx';
 import './Extras.css';
 
 const Extras = () => {
   return (
     <div className={'extras-container'}>
-      <div>Extras</div>
+      <span>Extras</span>
       <div className={'extras-buttons'}>
-        <FlavourButton />
+        <AddOns />
         <NoteButton />
       </div>
     </div>
