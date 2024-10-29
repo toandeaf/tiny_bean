@@ -32,7 +32,7 @@ const Size = () => {
             <img
               src={size.imageSrc}
               alt="size"
-              style={{ height: '1.7em', width: '1.7em' }}
+              style={{ height: '2em', width: '2em' }}
             />
           </button>
         );

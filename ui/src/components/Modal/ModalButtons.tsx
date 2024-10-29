@@ -1,5 +1,6 @@
 import ActionButtons, { ActionButtonProps } from '../ActionButtons.tsx';
 import { FC } from 'react';
+import './Modal.css';
 
 const ModalButtons: FC<ActionButtonProps> = ({
   primaryText,

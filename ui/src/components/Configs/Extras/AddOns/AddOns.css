@@ -1,5 +1,5 @@
 .add-on-option {
-    width: 8em;
+    /*width: 8em;*/
     padding: 8px 16px;
     background-color: #444;
     color: white;
@@ -36,5 +36,7 @@
 .add-on-section-options {
     display: flex;
     flex-wrap: wrap;
-    gap: 1em;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5em;
 }

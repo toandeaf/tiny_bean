@@ -1,25 +1,13 @@
 import './Extras.css';
 import ExtraButton from './ExtraButton.tsx';
-import AddOnModal from './AddOns/AddOnModal.tsx';
-import NoteModal from './Notes/NoteModal.tsx';
 import { Option } from '../../../types/types.ts';
 import { FC } from 'react';
 import { ModalTriggerProps } from '../../Modal/Modal.tsx';
-import hazelnut from '../../../assets/hazelnut.png';
-import note from '../../../assets/notepad.png';
+import { EXTRAS } from '../../../data/extraOptions.ts';
 
-interface OptionWithModal extends Option {
+export interface OptionWithModal extends Option {
   modal: FC<ModalTriggerProps>;
 }
-
-const EXTRAS: Array<OptionWithModal> = [
-  { title: 'Add-ons', imageSrc: hazelnut, modal: AddOnModal },
-  {
-    title: 'Notes',
-    imageSrc: note,
-    modal: NoteModal,
-  },
-];
 
 const Extras = () => {
   return (

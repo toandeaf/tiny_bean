@@ -5,15 +5,16 @@ import './CardExpanded.css';
 import Shots from '../Configs/Shots.tsx';
 import Extras from '../Configs/Extras/Extras.tsx';
 import ActionButtons from '../ActionButtons.tsx';
-import MilkTypes from '../Configs/MilkTypes.tsx';
+import { MILKS } from '../../data/addOnOptions.ts';
+import AddOnSection from '../Configs/Extras/AddOns/AddOnSection.tsx';
 
 const CardExpanded: FC<Omit<CardProps, 'onClick'>> = ({ option }) => (
   <div key={option.title} className="card-expanded">
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.7em' }}>
+    <div className={'card-expanded-content'}>
       <CardBanner title={option.title} imageSrc={option.imageSrc} />
 
       <Shots />
-      <MilkTypes />
+      <AddOnSection title={'Milks'} options={MILKS} />
       <Extras />
     </div>
     <ActionButtons

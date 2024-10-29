@@ -1,7 +1,7 @@
 import Modal, { ModalTriggerProps } from '../../../Modal/Modal.tsx';
-import ActionButtons from '../../../ActionButtons.tsx';
 import { FC } from 'react';
 import Notes from './Notes.tsx';
+import ModalButtons from '../../../Modal/ModalButtons.tsx';
 
 const NoteModal: FC<ModalTriggerProps> = ({ isModalOpen, setIsModalOpen }) => {
   return (
@@ -11,14 +11,12 @@ const NoteModal: FC<ModalTriggerProps> = ({ isModalOpen, setIsModalOpen }) => {
       title={'Add note'}
     >
       <Notes />
-      <div>
-        <ActionButtons
-          primaryText={'Add note'}
-          primaryAction={() => {}}
-          cancelText={'Clear'}
-          cancelAction={() => {}}
-        />
-      </div>
+      <ModalButtons
+        primaryText={'Add note'}
+        primaryAction={() => {}}
+        cancelText={'Clear'}
+        cancelAction={() => {}}
+      />
     </Modal>
   );
 };
