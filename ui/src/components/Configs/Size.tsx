@@ -20,12 +20,12 @@ const SIZES: SizeBars[] = [
 const Size = () => {
   const [selected, setSelected] = useState<OrderSize>(OrderSize.MEDIUM);
 
-  // TODO - replace these wee circles with coffee cups with letters?
   return (
     <div className={'size-container'}>
       {SIZES.map((size) => {
         return (
           <button
+            key={size.size}
             className={`size-button ${selected === size.size ? 'selected' : ''}`}
             onClick={() => setSelected(size.size)}
           >

@@ -1,15 +1,24 @@
 import './Configs.css';
 import ConfigContainer from './ConfigContainer';
 import { useState } from 'react';
+import { MilkType } from '../../types/types.ts';
 
-const MILK_TYPES = ['Full', 'Skimmed', 'Oat', 'Almond'];
-const MilkType = () => {
-  const [milkType, setMilkType] = useState<string>('Full');
+const MILK_TYPES: Array<MilkType> = [
+  MilkType.WHOLE,
+  MilkType.SKIM,
+  MilkType.OAT,
+  MilkType.ALMOND,
+];
+
+const MilkTypes = () => {
+  const [milkType, setMilkType] = useState<MilkType>(MilkType.WHOLE);
+  
   return (
     <ConfigContainer title={'Milk Type'}>
       {MILK_TYPES.map((type) => {
         return (
           <button
+            key={type}
             className={`size-button ${milkType === type ? 'selected' : ''} milk`}
             onClick={() => setMilkType(type)}
           >
@@ -21,4 +30,4 @@ const MilkType = () => {
   );
 };
 
-export default MilkType;
+export default MilkTypes;

@@ -12,6 +12,7 @@ const Shots = () => {
       {SHOTS.map((shot) => {
         return (
           <button
+            key={shot}
             className={`size-button ${shots === shot ? 'selected' : ''}`}
             onClick={() => setShots(shot)}
           >

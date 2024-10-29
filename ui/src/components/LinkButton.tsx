@@ -7,15 +7,13 @@ interface Props {
   primary?: boolean;
 }
 
-const LinkButton: FC<Props> = ({ primary, text, href }) => {
-  return (
-    <Link
-      to={href || '/'}
-      className={`button button-${primary ? 'primary' : 'secondary'} button-shadow`}
-    >
-      {text}
-    </Link>
-  );
-};
+const LinkButton: FC<Props> = ({ primary, text, href }) => (
+  <Link
+    to={href || '/'}
+    className={`button button-${primary ? 'primary' : 'secondary'} button-shadow`}
+  >
+    {text}
+  </Link>
+);
 
 export default LinkButton;

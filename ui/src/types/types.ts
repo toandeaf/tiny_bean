@@ -1,6 +1,9 @@
-export interface OrderOption {
+export interface Option {
   imageSrc: string;
   title: string;
+}
+
+export interface OrderOption extends Option {
   type: OrderType;
 }
 

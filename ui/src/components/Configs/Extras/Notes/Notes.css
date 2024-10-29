@@ -1,0 +1,9 @@
+.notes-area {
+    width: 90%;
+}
+
+.notes-modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 0.5em;
+}

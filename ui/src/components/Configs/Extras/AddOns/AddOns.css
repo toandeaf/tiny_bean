@@ -16,3 +16,25 @@
     align-items: center;
     justify-content: center;
 }
+
+.add-on-option:hover {
+    background-color: #555;
+}
+
+.add-on-option-image {
+    height: 2em;
+    width: 2em;
+}
+
+.add-on-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.add-on-section-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}

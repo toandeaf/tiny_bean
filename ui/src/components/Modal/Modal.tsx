@@ -8,6 +8,11 @@ interface ModalProps {
   children: ReactNode;
 }
 
+export interface ModalTriggerProps {
+  isModalOpen: boolean;
+  setIsModalOpen: (value: boolean) => void;
+}
+
 const Modal: React.FC<ModalProps> = ({ isOpen, title, onClose, children }) => {
   if (!isOpen) return null;
 

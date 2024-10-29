@@ -7,16 +7,14 @@ interface Props {
   imageSrc: string;
 }
 
-const CardBanner: FC<Props> = ({ title, imageSrc }) => {
-  return (
-    <div className={'card-banner'}>
-      <div className={'card-banner-type'}>
-        <img src={imageSrc} alt={title} className="card-banner-img" />
-        <div className="card-banner-title">{title}</div>
-      </div>
-      <Size />
+const CardBanner: FC<Props> = ({ title, imageSrc }) => (
+  <div className={'card-banner'}>
+    <div className={'card-banner-type'}>
+      <img src={imageSrc} alt={title} className="card-banner-img" />
+      <div className="card-banner-title">{title}</div>
     </div>
-  );
-};
+    <Size />
+  </div>
+);
 
 export default CardBanner;
