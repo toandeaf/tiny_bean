@@ -5,13 +5,16 @@ use axum::{
 };
 use serde::{Deserialize, Serialize};
 use tokio::net::TcpListener;
+use tower_http::services::ServeDir;
 
 #[tokio::main]
 async fn main() {
     tracing_subscriber::fmt::init();
 
+    let server = ServeDir::new("/home/jaketoan/dist");
+
     let router = Router::new()
-        .route("/", get(root))
+        .nest_service("/", server)
         .route("/users", get(get_user))
         .route("/users", post(create_user));
 
