@@ -20,6 +20,16 @@
     background-color: #555;
 }
 
+.add-on-option.selected {
+    background-color: #6f4e37;
+    border-color: #8b5a42;
+}
+
+.add-on-option.selected:hover {
+    background-color: #8b5a42;
+    border-color: #a67a5b;
+}
+
 .add-on-option-image {
     height: 2em;
     width: 2em;

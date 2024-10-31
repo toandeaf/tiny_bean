@@ -40,3 +40,12 @@ export const MILKS: Array<Option> = [
   { imageSrc: oats, title: 'Oat' },
   { imageSrc: almond, title: 'Almond' },
 ];
+
+export const SHOTS: Array<Option> = [
+  { title: '1' },
+  { title: '2' },
+  { title: '3' },
+  { title: '4' },
+  { title: '5' },
+  { title: '6' },
+];

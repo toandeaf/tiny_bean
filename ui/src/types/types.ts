@@ -1,5 +1,5 @@
 export interface Option {
-  imageSrc: string;
+  imageSrc?: string;
   title: string;
 }
 

@@ -1,7 +1,7 @@
 import Modal from '../../../Modal/Modal.tsx';
 import { FC } from 'react';
 import { EXTRAS, SYRUPS } from '../../../../data/addOnOptions.ts';
-import AddOnSection from './AddOnSection.tsx';
+import Selections from './Selections.tsx';
 import ModalButtons from '../../../Modal/ModalButtons.tsx';
 
 interface Props {
@@ -9,15 +9,15 @@ interface Props {
   setIsModalOpen: (value: boolean) => void;
 }
 
-const AddOnModal: FC<Props> = ({ isModalOpen, setIsModalOpen }) => {
+const SelectionModal: FC<Props> = ({ isModalOpen, setIsModalOpen }) => {
   return (
     <Modal
       isOpen={isModalOpen}
       onClose={() => setIsModalOpen(false)}
       title={'Add-ons'}
     >
-      <AddOnSection title={'Syrups'} options={SYRUPS} />
-      <AddOnSection title={'Extras'} options={EXTRAS} />
+      <Selections title={'Syrups'} options={SYRUPS} isMultiSelect={true} />
+      <Selections title={'Extras'} options={EXTRAS} isMultiSelect={true} />
 
       <ModalButtons
         primaryText={'Confirm add-ons'}
@@ -29,4 +29,4 @@ const AddOnModal: FC<Props> = ({ isModalOpen, setIsModalOpen }) => {
   );
 };
 
-export default AddOnModal;
+export default SelectionModal;
