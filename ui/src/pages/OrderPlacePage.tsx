@@ -1,19 +1,19 @@
-import './OrderPlacePage.css';
-import Banner from '../components/Banner.tsx';
-import { ORDER_OPTIONS } from '../data/orderOptions.ts';
-import { useState } from 'react';
-import { OrderOption } from '../types/types.ts';
-import '../components/Card/Card.css';
-import Card from '../components/Card/Card.tsx';
-import CardExpanded from '../components/Card/CardExpanded.tsx';
+import './OrderPlacePage.css'
+import Banner from '../components/Banner.tsx'
+import { ORDER_OPTIONS } from '../data/orderOptions.ts'
+import { useState } from 'react'
+import { OrderOption } from '../types/types.ts'
+import '../components/Card/Card.css'
+import Card from '../components/Card/Card.tsx'
+import CardExpanded from '../components/Card/CardExpanded.tsx'
 
 const OrderPlacePage = () => {
   const [selectedOrderOption, setSelectedOrderOption] =
-    useState<OrderOption | null>(null);
+    useState<OrderOption | null>(null)
 
   const handleCardClick = (orderOption: OrderOption) => {
-    setSelectedOrderOption(orderOption);
-  };
+    setSelectedOrderOption(orderOption)
+  }
 
   return (
     <>
@@ -35,7 +35,7 @@ const OrderPlacePage = () => {
         )}
       </div>
     </>
-  );
-};
+  )
+}
 
-export default OrderPlacePage;
+export default OrderPlacePage

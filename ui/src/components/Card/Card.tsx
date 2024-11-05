@@ -1,10 +1,10 @@
-import { FC } from 'react';
-import './Card.css';
-import { OrderOption } from '../../types/types.ts';
+import { FC } from 'react'
+import './Card.css'
+import { OrderOption } from '../../types/types.ts'
 
 export interface CardProps {
-  option: OrderOption;
-  onClick: (type: OrderOption) => void;
+  option: OrderOption
+  onClick: (type: OrderOption) => void
 }
 
 const Card: FC<CardProps> = ({ option, onClick }) => (
@@ -12,6 +12,6 @@ const Card: FC<CardProps> = ({ option, onClick }) => (
     <img src={option.imageSrc} alt={option.title} className="card-img" />
     <div className="card-title">{option.title}</div>
   </div>
-);
+)
 
-export default Card;
+export default Card

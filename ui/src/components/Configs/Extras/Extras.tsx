@@ -1,12 +1,12 @@
-import './Extras.css';
-import ExtraButton from './ExtraButton.tsx';
-import { Option } from '../../../types/types.ts';
-import { FC } from 'react';
-import { ModalTriggerProps } from '../../Modal/Modal.tsx';
-import { EXTRAS } from '../../../data/extraOptions.ts';
+import './Extras.css'
+import ExtraButton from './ExtraButton.tsx'
+import { Option } from '../../../types/types.ts'
+import { FC } from 'react'
+import { ModalTriggerProps } from '../../Modal/Modal.tsx'
+import { EXTRAS } from '../../../data/extraOptions.ts'
 
 export interface OptionWithModal extends Option {
-  modal: FC<ModalTriggerProps>;
+  modal: FC<ModalTriggerProps>
 }
 
 const Extras = () => {
@@ -19,7 +19,7 @@ const Extras = () => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Extras;
+export default Extras

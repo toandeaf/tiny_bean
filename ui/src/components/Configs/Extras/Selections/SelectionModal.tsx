@@ -1,12 +1,12 @@
-import Modal from '../../../Modal/Modal.tsx';
-import { FC } from 'react';
-import { EXTRAS, SYRUPS } from '../../../../data/addOnOptions.ts';
-import Selections from './Selections.tsx';
-import ModalButtons from '../../../Modal/ModalButtons.tsx';
+import Modal from '../../../Modal/Modal.tsx'
+import { FC } from 'react'
+import { EXTRAS, SYRUPS } from '../../../../data/addOnOptions.ts'
+import Selections from './Selections.tsx'
+import ModalButtons from '../../../Modal/ModalButtons.tsx'
 
 interface Props {
-  isModalOpen: boolean;
-  setIsModalOpen: (value: boolean) => void;
+  isModalOpen: boolean
+  setIsModalOpen: (value: boolean) => void
 }
 
 const SelectionModal: FC<Props> = ({ isModalOpen, setIsModalOpen }) => {
@@ -26,7 +26,7 @@ const SelectionModal: FC<Props> = ({ isModalOpen, setIsModalOpen }) => {
         cancelAction={() => {}}
       />
     </Modal>
-  );
-};
+  )
+}
 
-export default SelectionModal;
+export default SelectionModal

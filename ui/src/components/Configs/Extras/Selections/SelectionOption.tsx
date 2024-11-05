@@ -1,20 +1,20 @@
-import { FC, useEffect, useState } from 'react';
-import './Selections.css';
-import { Option } from '../../../../types/types.ts';
+import { FC, useEffect, useState } from 'react'
+import './Selections.css'
+import { Option } from '../../../../types/types.ts'
 
 interface Props {
-  option: Option;
-  selected: Set<string>;
-  handleSelection: (isSelected: boolean, title: string) => void;
+  option: Option
+  selected: Set<string>
+  handleSelection: (isSelected: boolean, title: string) => void
 }
 
 const SelectionOption: FC<Props> = ({ option, selected, handleSelection }) => {
-  const { imageSrc, title } = option;
-  const [isSelected, setIsSelected] = useState(() => selected.has(title));
+  const { imageSrc, title } = option
+  const [isSelected, setIsSelected] = useState(() => selected.has(title))
 
   useEffect(() => {
-    setIsSelected(selected.has(title));
-  }, [selected, title]);
+    setIsSelected(selected.has(title))
+  }, [selected, title])
 
   return (
     <button
@@ -26,7 +26,7 @@ const SelectionOption: FC<Props> = ({ option, selected, handleSelection }) => {
       )}
       <span>{title}</span>
     </button>
-  );
-};
+  )
+}
 
-export default SelectionOption;
+export default SelectionOption

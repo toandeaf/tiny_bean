@@ -1,14 +1,14 @@
-import { FC, useState } from 'react';
-import { Option } from '../../../types/types.ts';
-import { ModalTriggerProps } from '../../Modal/Modal.tsx';
+import { FC, useState } from 'react'
+import { Option } from '../../../types/types.ts'
+import { ModalTriggerProps } from '../../Modal/Modal.tsx'
 
 interface Props {
-  option: Option;
-  modal: FC<ModalTriggerProps>;
+  option: Option
+  modal: FC<ModalTriggerProps>
 }
 
 const ExtraButton: FC<Props> = ({ option, modal }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   return (
     <>
@@ -24,7 +24,7 @@ const ExtraButton: FC<Props> = ({ option, modal }) => {
       </button>
       {modal({ isModalOpen, setIsModalOpen })}
     </>
-  );
-};
+  )
+}
 
-export default ExtraButton;
+export default ExtraButton

@@ -1,7 +1,7 @@
-import './Notes.css';
+import './Notes.css'
 
 const Notes = () => {
-  return <textarea className={'notes-area'} rows={5}></textarea>;
-};
+  return <textarea className={'notes-area'} rows={5}></textarea>
+}
 
-export default Notes;
+export default Notes

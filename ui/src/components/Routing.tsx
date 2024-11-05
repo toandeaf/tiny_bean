@@ -1,7 +1,7 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import LandingPage from '../pages/LandingPage.tsx';
-import OrderPlacePage from '../pages/OrderPlacePage.tsx';
-import OrderViewPage from '../pages/OrderViewPage.tsx';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import LandingPage from '../pages/LandingPage.tsx'
+import OrderPlacePage from '../pages/OrderPlacePage.tsx'
+import OrderViewPage from '../pages/OrderViewPage.tsx'
 
 const Routing = () => (
   <Router>
@@ -11,6 +11,6 @@ const Routing = () => (
       <Route path="/orders/view" element={<OrderViewPage />} />
     </Routes>
   </Router>
-);
+)
 
-export default Routing;
+export default Routing

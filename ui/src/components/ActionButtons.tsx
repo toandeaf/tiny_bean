@@ -1,10 +1,10 @@
-import { FC } from 'react';
+import { FC } from 'react'
 
 export interface ActionButtonProps {
-  primaryText: string;
-  cancelText: string;
-  primaryAction: () => void;
-  cancelAction: () => void;
+  primaryText: string
+  cancelText: string
+  primaryAction: () => void
+  cancelAction: () => void
 }
 
 const ActionButtons: FC<ActionButtonProps> = ({
@@ -27,6 +27,6 @@ const ActionButtons: FC<ActionButtonProps> = ({
       {primaryText}
     </button>
   </div>
-);
+)
 
-export default ActionButtons;
+export default ActionButtons

@@ -1,6 +1,6 @@
-import ActionButtons, { ActionButtonProps } from '../ActionButtons.tsx';
-import { FC } from 'react';
-import './Modal.css';
+import ActionButtons, { ActionButtonProps } from '../ActionButtons.tsx'
+import { FC } from 'react'
+import './Modal.css'
 
 const ModalButtons: FC<ActionButtonProps> = ({
   primaryText,
@@ -16,6 +16,6 @@ const ModalButtons: FC<ActionButtonProps> = ({
       cancelAction={cancelAction}
     />
   </div>
-);
+)
 
-export default ModalButtons;
+export default ModalButtons

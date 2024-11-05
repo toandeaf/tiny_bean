@@ -1,10 +1,10 @@
-import { FC } from 'react';
-import './CardBanner.css';
-import Size from '../Configs/Size.tsx';
-import { Option } from '../../types/types.ts';
+import { FC } from 'react'
+import './CardBanner.css'
+import Size from '../Configs/Size.tsx'
+import { Option } from '../../types/types.ts'
 
 interface Props {
-  option: Option;
+  option: Option
 }
 
 const CardBanner: FC<Props> = ({ option }) => (
@@ -21,6 +21,6 @@ const CardBanner: FC<Props> = ({ option }) => (
     </div>
     <Size />
   </div>
-);
+)
 
-export default CardBanner;
+export default CardBanner

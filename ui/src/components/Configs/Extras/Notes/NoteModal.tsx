@@ -1,7 +1,7 @@
-import Modal, { ModalTriggerProps } from '../../../Modal/Modal.tsx';
-import { FC } from 'react';
-import Notes from './Notes.tsx';
-import ModalButtons from '../../../Modal/ModalButtons.tsx';
+import Modal, { ModalTriggerProps } from '../../../Modal/Modal.tsx'
+import { FC } from 'react'
+import Notes from './Notes.tsx'
+import ModalButtons from '../../../Modal/ModalButtons.tsx'
 
 const NoteModal: FC<ModalTriggerProps> = ({ isModalOpen, setIsModalOpen }) => {
   return (
@@ -18,7 +18,7 @@ const NoteModal: FC<ModalTriggerProps> = ({ isModalOpen, setIsModalOpen }) => {
         cancelAction={() => {}}
       />
     </Modal>
-  );
-};
+  )
+}
 
-export default NoteModal;
+export default NoteModal

@@ -1,36 +1,36 @@
-import SelectionOption from './SelectionOption.tsx';
-import './Selections.css';
-import { Option } from '../../../../types/types.ts';
-import { FC, useState } from 'react';
+import SelectionOption from './SelectionOption.tsx'
+import './Selections.css'
+import { Option } from '../../../../types/types.ts'
+import { FC, useState } from 'react'
 
 interface Props {
-  title: string;
-  options: Array<Option>;
-  isMultiSelect: boolean;
+  title: string
+  options: Array<Option>
+  isMultiSelect: boolean
 }
 
 const Selections: FC<Props> = ({ title, options, isMultiSelect }) => {
-  const [selected, setSelected] = useState<Set<string>>(new Set());
+  const [selected, setSelected] = useState<Set<string>>(new Set())
 
   const handleSingleSelection = (isSelected: boolean, value: string) => {
-    const newSet = new Set<string>();
+    const newSet = new Set<string>()
     if (isSelected) {
-      newSet.add(value);
+      newSet.add(value)
     }
-    setSelected(newSet);
-  };
+    setSelected(newSet)
+  }
 
   const handleMultiSelection = (isSelected: boolean, value: string) => {
-    const newSet = new Set(selected);
+    const newSet = new Set(selected)
 
     if (isSelected) {
-      newSet.add(value);
+      newSet.add(value)
     } else {
-      newSet.delete(value);
+      newSet.delete(value)
     }
 
-    setSelected(newSet);
-  };
+    setSelected(newSet)
+  }
 
   return (
     <div className={'add-on-section'}>
@@ -48,7 +48,7 @@ const Selections: FC<Props> = ({ title, options, isMultiSelect }) => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Selections;
+export default Selections

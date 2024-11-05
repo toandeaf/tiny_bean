@@ -1,5 +1,5 @@
-import LinkButton from '../components/LinkButton.tsx';
-import tinyBeanLogo from '../assets/coffee-bean.png';
+import LinkButton from '../components/LinkButton.tsx'
+import tinyBeanLogo from '../assets/coffee-bean.png'
 
 const LandingPage = () => (
   <div className={'container'}>
@@ -16,6 +16,6 @@ const LandingPage = () => (
       <LinkButton text={'View Orders'} href={'/orders/view'} />
     </div>
   </div>
-);
+)
 
-export default LandingPage;
+export default LandingPage

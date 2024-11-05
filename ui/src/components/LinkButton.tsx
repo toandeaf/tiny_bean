@@ -1,10 +1,10 @@
-import { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { FC } from 'react'
+import { Link } from 'react-router-dom'
 
 interface Props {
-  text: string;
-  href?: string;
-  primary?: boolean;
+  text: string
+  href?: string
+  primary?: boolean
 }
 
 const LinkButton: FC<Props> = ({ primary, text, href }) => (
@@ -14,6 +14,6 @@ const LinkButton: FC<Props> = ({ primary, text, href }) => (
   >
     {text}
   </Link>
-);
+)
 
-export default LinkButton;
+export default LinkButton

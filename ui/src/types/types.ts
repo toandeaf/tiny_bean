@@ -1,20 +1,20 @@
 export interface Option {
-  imageSrc?: string;
-  title: string;
+  imageSrc?: string
+  title: string
 }
 
 export interface OrderOption extends Option {
-  type: OrderType;
+  type: OrderType
 }
 
 export interface Order {
-  type: OrderType;
-  numberOfShots: number;
-  milkType: MilkType;
-  size: Size;
-  flavouring: string;
-  decaf: boolean;
-  notes: string;
+  type: OrderType
+  numberOfShots: number
+  milkType: MilkType
+  size: Size
+  flavouring: string
+  decaf: boolean
+  notes: string
 }
 
 export enum OrderType {

@@ -1,20 +1,20 @@
-import React, { ReactNode } from 'react';
-import './Modal.css';
+import React, { ReactNode } from 'react'
+import './Modal.css'
 
 interface ModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  title: string;
-  children: ReactNode;
+  isOpen: boolean
+  onClose: () => void
+  title: string
+  children: ReactNode
 }
 
 export interface ModalTriggerProps {
-  isModalOpen: boolean;
-  setIsModalOpen: (value: boolean) => void;
+  isModalOpen: boolean
+  setIsModalOpen: (value: boolean) => void
 }
 
 const Modal: React.FC<ModalProps> = ({ isOpen, title, onClose, children }) => {
-  if (!isOpen) return null;
+  if (!isOpen) return null
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -28,7 +28,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, title, onClose, children }) => {
         {children}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Modal;
+export default Modal

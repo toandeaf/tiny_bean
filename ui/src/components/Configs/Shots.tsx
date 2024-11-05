@@ -1,11 +1,11 @@
-import './Configs.css';
-import ConfigContainer from './ConfigContainer';
-import { useState } from 'react';
+import './Configs.css'
+import ConfigContainer from './ConfigContainer'
+import { useState } from 'react'
 
-const SHOTS = [1, 2, 3, 4, 5, 6];
+const SHOTS = [1, 2, 3, 4, 5, 6]
 
 const Shots = () => {
-  const [shots, setShots] = useState<number>(2);
+  const [shots, setShots] = useState<number>(2)
 
   return (
     <ConfigContainer title={'Shots'}>
@@ -19,10 +19,10 @@ const Shots = () => {
           >
             {shot}
           </button>
-        );
+        )
       })}
     </ConfigContainer>
-  );
-};
+  )
+}
 
-export default Shots;
+export default Shots

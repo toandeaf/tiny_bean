@@ -1,11 +1,11 @@
-import Banner from '../components/Banner.tsx';
+import Banner from '../components/Banner.tsx'
 
 const OrderViewPage = () => {
   return (
     <>
       <Banner />
     </>
-  );
-};
+  )
+}
 
-export default OrderViewPage;
+export default OrderViewPage

@@ -1,24 +1,24 @@
-import './Configs.css';
-import { useState } from 'react';
-import takeway_s from '../../assets/takeway_s.png';
-import takeway_m from '../../assets/takeway_m.png';
-import takeway_l from '../../assets/takeway_l.png';
+import './Configs.css'
+import { useState } from 'react'
+import takeway_s from '../../assets/takeway_s.png'
+import takeway_m from '../../assets/takeway_m.png'
+import takeway_l from '../../assets/takeway_l.png'
 
-import { Size as OrderSize } from '../../types/types';
+import { Size as OrderSize } from '../../types/types'
 
 type SizeBars = {
-  size: OrderSize;
-  imageSrc?: string;
-};
+  size: OrderSize
+  imageSrc?: string
+}
 
 const SIZES: SizeBars[] = [
   { size: OrderSize.SMALL, imageSrc: takeway_s },
   { size: OrderSize.MEDIUM, imageSrc: takeway_m },
   { size: OrderSize.LARGE, imageSrc: takeway_l },
-];
+]
 
 const Size = () => {
-  const [selected, setSelected] = useState<OrderSize>(OrderSize.MEDIUM);
+  const [selected, setSelected] = useState<OrderSize>(OrderSize.MEDIUM)
 
   return (
     <div className={'size-container'}>
@@ -35,10 +35,10 @@ const Size = () => {
               style={{ height: '2em', width: '2em' }}
             />
           </button>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}
 
-export default Size;
+export default Size
