@@ -4,17 +4,23 @@ use axum::{
     serve, Json, Router,
 };
 use serde::{Deserialize, Serialize};
+use std::path::Path;
 use tokio::net::TcpListener;
-use tower_http::services::ServeDir;
+use tower_http::services::{ServeDir, ServeFile};
+
+const STATIC_DIR: &str = "/home/jaketoan/dist";
 
 #[tokio::main]
 async fn main() {
-    tracing_subscriber::fmt::init();
+    let static_assets = ServeDir::new(STATIC_DIR)
+        .append_index_html_on_directories(false);
 
-    let server = ServeDir::new("/home/jaketoan/dist");
+    let index_file = ServeFile::new(Path::new(STATIC_DIR)
+        .join("index.html"));
 
     let router = Router::new()
-        .nest_service("/", server)
+        .nest_service("/", index_file)
+        .nest_service("/static", static_assets)
         .route("/users", get(get_user))
         .route("/users", post(create_user));
 
@@ -22,11 +28,7 @@ async fn main() {
         .await
         .expect("Failed to bind to port 3000");
 
-    serve(listener, router).await.unwrap();
-}
-
-async fn root() -> &'static str {
-    "Hello, World!"
+    serve(listener, router).await.expect("Server failed");
 }
 
 async fn get_user() -> (StatusCode, Json<User>) {
