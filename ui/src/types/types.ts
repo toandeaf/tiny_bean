@@ -38,3 +38,5 @@ export enum Size {
   MEDIUM = 'Medium',
   LARGE = 'Large',
 }
+
+export type Choice = MilkType | Size
