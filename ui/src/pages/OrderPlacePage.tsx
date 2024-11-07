@@ -1,34 +1,33 @@
 import './OrderPlacePage.css'
 import Banner from '../components/Banner.tsx'
-import { ORDER_OPTIONS } from '../data/orderOptions.ts'
-import { useState } from 'react'
+import { ORDER_MAP } from '../data/orderOptions.ts'
 import { OrderOption } from '../types/types.ts'
 import '../components/Card/Card.css'
 import Card from '../components/Card/Card.tsx'
 import CardExpanded from '../components/Card/CardExpanded.tsx'
+import { DEFAULT_ORDER, useOrderStore } from '../data/orderState.ts'
 
 
 const OrderPlacePage = () => {
-  const [selectedOrderOption, setSelectedOrderOption] =
-    useState<OrderOption | null>(null)
+  const { order, setOrder } = useOrderStore()
 
   const handleCardClick = (orderOption: OrderOption) => {
-    setSelectedOrderOption(orderOption)
+    setOrder({ ...DEFAULT_ORDER, type: orderOption.type })
   }
 
   return (
     <>
       <Banner />
       <div className="card-container">
-        {selectedOrderOption ? (
+        {order ? (
           <CardExpanded
-            key={selectedOrderOption.title}
-            option={selectedOrderOption}
+            key={order.type}
+            order={order}
           />
         ) : (
-          ORDER_OPTIONS.map((option) => (
+          Array.from(ORDER_MAP.values()).map((option) => (
             <Card
-              key={option.title}
+              key={option.type}
               option={option}
               onClick={handleCardClick}
             />

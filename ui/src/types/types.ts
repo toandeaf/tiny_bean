@@ -12,8 +12,7 @@ export interface Order {
   numberOfShots: number
   milkType: MilkType
   size: Size
-  flavouring: string
-  decaf: boolean
+  extras: Array<string>
   notes: string
 }
 
@@ -27,6 +26,7 @@ export enum OrderType {
 }
 
 export enum MilkType {
+  NONE = 'None',
   WHOLE = 'Whole',
   SKIM = 'Skim',
   OAT = 'Oat',
