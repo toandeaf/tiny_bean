@@ -1,36 +1,26 @@
 import SelectionOption from './SelectionOption.tsx'
 import './Selections.css'
 import { Option } from '../../../../types/types.ts'
-import { FC, useState } from 'react'
+import { useEffect, useState } from 'react'
 
-interface Props {
+interface Props<T> {
   title: string
-  options: Array<Option>
-  isMultiSelect: boolean
+  options: Array<Option<T>>
+  selectedOptions: Set<T>
+  onClick: (value: T) => void
 }
 
-const Selections: FC<Props> = ({ title, options, isMultiSelect }) => {
-  const [selected, setSelected] = useState<Set<string>>(new Set())
+const Selections = <T,>({
+  title,
+  options,
+  selectedOptions,
+  onClick,
+}: Props<T>) => {
+  const [selectedValues, setSelectedValues] = useState<Set<T>>(selectedOptions)
 
-  const handleSingleSelection = (isSelected: boolean, value: string) => {
-    const newSet = new Set<string>()
-    if (isSelected) {
-      newSet.add(value)
-    }
-    setSelected(newSet)
-  }
-
-  const handleMultiSelection = (isSelected: boolean, value: string) => {
-    const newSet = new Set(selected)
-
-    if (isSelected) {
-      newSet.add(value)
-    } else {
-      newSet.delete(value)
-    }
-
-    setSelected(newSet)
-  }
+  useEffect(() => {
+    setSelectedValues(selectedOptions)
+  }, [selectedOptions])
 
   return (
     <div className={'add-on-section'}>
@@ -40,10 +30,8 @@ const Selections: FC<Props> = ({ title, options, isMultiSelect }) => {
           <SelectionOption
             key={option.title}
             option={option}
-            selected={selected}
-            handleSelection={
-              isMultiSelect ? handleMultiSelection : handleSingleSelection
-            }
+            onClick={onClick}
+            selectedValues={selectedValues}
           />
         ))}
       </div>

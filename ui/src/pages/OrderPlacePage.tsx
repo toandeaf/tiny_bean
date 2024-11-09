@@ -1,18 +1,17 @@
 import './OrderPlacePage.css'
 import Banner from '../components/Banner.tsx'
 import { ORDER_MAP } from '../data/orderOptions.ts'
-import { OrderOption } from '../types/types.ts'
+import { OrderType } from '../types/types.ts'
 import '../components/Card/Card.css'
 import Card from '../components/Card/Card.tsx'
 import CardExpanded from '../components/Card/CardExpanded.tsx'
 import { DEFAULT_ORDER, useOrderStore } from '../data/orderState.ts'
 
-
 const OrderPlacePage = () => {
   const { order, setOrder } = useOrderStore()
 
-  const handleCardClick = (orderOption: OrderOption) => {
-    setOrder({ ...DEFAULT_ORDER, type: orderOption.type })
+  const handleCardClick = (orderType: OrderType) => {
+    setOrder({ ...DEFAULT_ORDER, type: orderType })
   }
 
   return (
@@ -20,14 +19,11 @@ const OrderPlacePage = () => {
       <Banner />
       <div className="card-container">
         {order ? (
-          <CardExpanded
-            key={order.type}
-            order={order}
-          />
+          <CardExpanded />
         ) : (
           Array.from(ORDER_MAP.values()).map((option) => (
             <Card
-              key={option.type}
+              key={option.title}
               option={option}
               onClick={handleCardClick}
             />

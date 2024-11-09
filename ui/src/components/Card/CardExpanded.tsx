@@ -5,28 +5,44 @@ import Extras from '../Configs/Extras/Extras.tsx'
 import ActionButtons from '../ActionButtons.tsx'
 import { MILKS, SHOTS } from '../../data/addOnOptions.ts'
 import Selections from '../Configs/Extras/Selections/Selections.tsx'
-import { Order } from '../../types/types.ts'
+import { useOrderStore } from '../../data/orderState.ts'
 
-interface Props {
-  order: Order
-}
+const CardExpanded: FC = () => {
+  const { order, setOrder, setField, addOrder } = useOrderStore()
 
-const CardExpanded: FC<Props> = ({ order }) => (
-  <div key={order.type} className="card-expanded">
-    <div className={'card-expanded-content'}>
-      <CardBanner order={order} />
-      <Selections title={'Shots'} options={SHOTS} isMultiSelect={false} />
-      <Selections title={'Milk'} options={MILKS} isMultiSelect={false} />
-      <Extras />
+  if (!order) return null
+
+  return (
+    <div className="card-expanded">
+      <div className={'card-expanded-content'}>
+        <CardBanner order={order} />
+
+        <Selections
+          title={'Shots'}
+          options={SHOTS}
+          onClick={(val) => setField('numberOfShots', val)}
+          selectedOptions={new Set([order.numberOfShots])}
+        />
+        <Selections
+          title={'Milk'}
+          options={MILKS}
+          onClick={(val) => setField('milkType', val)}
+          selectedOptions={new Set([order.milkType])}
+        />
+        <Extras />
+      </div>
+
+      <ActionButtons
+        primaryText={'Add to order'}
+        primaryAction={() => {
+          addOrder(order)
+          setOrder(null)
+        }}
+        cancelText={'Clear'}
+        cancelAction={() => setOrder(null)}
+      />
     </div>
-
-    <ActionButtons
-      primaryText={'Add order'}
-      primaryAction={() => {}}
-      cancelText={'Cancel order'}
-      cancelAction={() => {}}
-    />
-  </div>
-)
+  )
+}
 
 export default CardExpanded

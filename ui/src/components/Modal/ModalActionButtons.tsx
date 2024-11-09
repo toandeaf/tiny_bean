@@ -2,7 +2,7 @@ import ActionButtons, { ActionButtonProps } from '../ActionButtons.tsx'
 import { FC } from 'react'
 import './Modal.css'
 
-const ModalButtons: FC<ActionButtonProps> = ({
+const ModalActionButtons: FC<ActionButtonProps> = ({
   primaryText,
   primaryAction,
   cancelText,
@@ -18,4 +18,4 @@ const ModalButtons: FC<ActionButtonProps> = ({
   </div>
 )
 
-export default ModalButtons
+export default ModalActionButtons

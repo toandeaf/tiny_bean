@@ -1,10 +1,7 @@
-export interface Option {
+export interface Option<T> {
   imageSrc?: string
   title: string
-}
-
-export interface OrderOption extends Option {
-  type: OrderType
+  value: T
 }
 
 export interface Order {
@@ -38,5 +35,3 @@ export enum Size {
   MEDIUM = 'Medium',
   LARGE = 'Large',
 }
-
-export type Choice = MilkType | Size

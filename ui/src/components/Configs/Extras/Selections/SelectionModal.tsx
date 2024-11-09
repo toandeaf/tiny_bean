@@ -1,29 +1,66 @@
 import Modal from '../../../Modal/Modal.tsx'
-import { FC } from 'react'
-import { EXTRAS, SYRUPS } from '../../../../data/addOnOptions.ts'
+import { MISCELLANEOUS, SYRUPS } from '../../../../data/addOnOptions.ts'
 import Selections from './Selections.tsx'
-import ModalButtons from '../../../Modal/ModalButtons.tsx'
+import ModalActionButtons from '../../../Modal/ModalActionButtons.tsx'
+import { useOrderStore } from '../../../../data/orderState.ts'
+import { useEffect, useState } from 'react'
 
 interface Props {
   isModalOpen: boolean
   setIsModalOpen: (value: boolean) => void
 }
 
-const SelectionModal: FC<Props> = ({ isModalOpen, setIsModalOpen }) => {
+const SelectionModal = ({ isModalOpen, setIsModalOpen }: Props) => {
+  const { order, setField } = useOrderStore()
+  const [selectedExtras, setSelectedExtras] = useState<Set<string>>(
+    new Set(order?.extras)
+  )
+
+  useEffect(() => {
+    setSelectedExtras(new Set(order?.extras))
+  }, [order?.extras])
+
+  if (!order) return null
+
+  const handleExtras = (extra: string) => {
+    if (order.extras.includes(extra)) {
+      setField(
+        'extras',
+        order.extras.filter((e) => e !== extra)
+      )
+    } else {
+      setField('extras', [...order.extras, extra])
+    }
+  }
+
   return (
     <Modal
       isOpen={isModalOpen}
       onClose={() => setIsModalOpen(false)}
       title={'Add-ons'}
     >
-      <Selections title={'Syrups'} options={SYRUPS} isMultiSelect={true} />
-      <Selections title={'Extras'} options={EXTRAS} isMultiSelect={true} />
+      <Selections
+        title={'Syrups'}
+        options={SYRUPS}
+        onClick={handleExtras}
+        selectedOptions={selectedExtras}
+      />
+      <Selections
+        title={'Miscellaneous'}
+        options={MISCELLANEOUS}
+        onClick={handleExtras}
+        selectedOptions={selectedExtras}
+      />
 
-      <ModalButtons
-        primaryText={'Confirm add-ons'}
-        primaryAction={() => {}}
+      <ModalActionButtons
+        primaryText={'Ok'}
+        primaryAction={() => {
+          setIsModalOpen(false)
+        }}
         cancelText={'Clear'}
-        cancelAction={() => {}}
+        cancelAction={() => {
+          setField('extras', [])
+        }}
       />
     </Modal>
   )

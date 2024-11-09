@@ -1,25 +1,19 @@
-import { FC, useEffect, useState } from 'react'
 import './Selections.css'
 import { Option } from '../../../../types/types.ts'
 
-interface Props {
-  option: Option
-  selected: Set<string>
-  handleSelection: (isSelected: boolean, title: string) => void
+interface Props<T> {
+  option: Option<T>
+  onClick: (value: T) => void
+  selectedValues: Set<T>
 }
 
-const SelectionOption: FC<Props> = ({ option, selected, handleSelection }) => {
-  const { imageSrc, title } = option
-  const [isSelected, setIsSelected] = useState(() => selected.has(title))
-
-  useEffect(() => {
-    setIsSelected(selected.has(title))
-  }, [selected, title])
+const SelectionOption = <T,>({ option, onClick, selectedValues }: Props<T>) => {
+  const { imageSrc, title, value } = option
 
   return (
     <button
-      className={`add-on-option ${isSelected ? 'selected' : ''}`}
-      onClick={() => handleSelection(!isSelected, title)}
+      className={`add-on-option ${selectedValues.has(value) ? 'selected' : ''}`}
+      onClick={() => onClick(value)}
     >
       {imageSrc && (
         <img src={imageSrc} className={'add-on-option-image'} alt={title} />

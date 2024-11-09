@@ -1,31 +1,31 @@
-import { FC } from 'react'
+import { FC, useMemo } from 'react'
 import './CardBanner.css'
 import Size from '../Configs/Size.tsx'
-import { Order } from '../../types/types.ts'
 import { ORDER_MAP } from '../../data/orderOptions.ts'
+import { Order } from '../../types/types.ts'
 
 interface Props {
   order: Order
 }
 
 const CardBanner: FC<Props> = ({ order }) => {
-  const option = ORDER_MAP.get(order.type)
-
-  if (!option) {
-    return null
-  }
+  const option = useMemo(() => ORDER_MAP.get(order.type), [order])
 
   return (
     <div className={'card-banner'}>
       <div className={'card-banner-type'}>
-        {option.imageSrc && (
-          <img
-            src={option.imageSrc}
-            alt={option.title}
-            className="card-banner-img"
-          />
+        {option && (
+          <>
+            {option?.imageSrc && (
+              <img
+                src={option.imageSrc}
+                alt={option.title}
+                className="card-banner-img"
+              />
+            )}
+            <div className="card-banner-title">{option?.title}</div>
+          </>
         )}
-        <div className="card-banner-title">{option.title}</div>
       </div>
       <Size />
     </div>

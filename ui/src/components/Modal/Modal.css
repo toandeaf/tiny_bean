@@ -38,3 +38,41 @@
     justify-content: center;
     padding-top: 0.5em;
 }
+
+.modal-button {
+    padding: 8px 16px;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.modal-button:hover {
+    background-color: #555;
+}
+
+.modal-button.selected {
+    background-color: #6f4e37; /* Coffee-inspired color */
+    border-color: #8b5a42;
+}
+
+.modal-button.selected:hover {
+    background-color: #8b5a42;
+    border-color: #a67a5b;
+}
+
+.modal-button-elements {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.modal-button-image {
+    height: 2em;
+    width: 2em;
+}
