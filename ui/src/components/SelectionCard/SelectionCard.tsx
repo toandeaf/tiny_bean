@@ -1,21 +1,21 @@
 import { FC } from 'react'
-import CardBanner from './CardBanner.tsx'
-import './CardExpanded.css'
-import Extras from '../Configs/Extras/Extras.tsx'
-import ActionButtons from '../ActionButtons.tsx'
-import { MILKS, SHOTS } from '../../data/addOnOptions.ts'
-import Selections from '../Configs/Extras/Selections/Selections.tsx'
 import { useOrderStore } from '../../data/orderState.ts'
+import Selections from '../Configs/Extras/Selections/Selections.tsx'
+import Extras from '../Configs/Extras/Extras.tsx'
+import { MILKS, SHOTS } from '../../data/addOnOptions.ts'
+import './SelectionCard.css'
+import ActionButtons from '../ActionButtons.tsx'
+import SelectionCardBanner from './SelectionCardBanner.tsx'
 
-const CardExpanded: FC = () => {
+const SelectionCard: FC = () => {
   const { order, setOrder, setField, addOrder } = useOrderStore()
 
   if (!order) return null
 
   return (
-    <div className="card-expanded">
-      <div className={'card-expanded-content'}>
-        <CardBanner order={order} />
+    <div className="selection-card">
+      <div className={'selection-card-content'}>
+        <SelectionCardBanner order={order} />
 
         <Selections
           title={'Shots'}
@@ -45,4 +45,4 @@ const CardExpanded: FC = () => {
   )
 }
 
-export default CardExpanded
+export default SelectionCard

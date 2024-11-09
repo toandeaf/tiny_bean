@@ -1,5 +1,5 @@
 import { FC, useMemo } from 'react'
-import './CardBanner.css'
+import './SelectionCardBanner.css'
 import Size from '../Configs/Size.tsx'
 import { ORDER_MAP } from '../../data/orderOptions.ts'
 import { Order } from '../../types/types.ts'
@@ -8,7 +8,7 @@ interface Props {
   order: Order
 }
 
-const CardBanner: FC<Props> = ({ order }) => {
+const SelectionCardBanner: FC<Props> = ({ order }) => {
   const option = useMemo(() => ORDER_MAP.get(order.type), [order])
 
   return (
@@ -32,4 +32,4 @@ const CardBanner: FC<Props> = ({ order }) => {
   )
 }
 
-export default CardBanner
+export default SelectionCardBanner
