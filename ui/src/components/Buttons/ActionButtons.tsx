@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
 import './Button.css'
 import Button from './Button.tsx'
 
@@ -7,6 +7,8 @@ export interface ActionButtonProps {
   cancelText: string
   primaryAction: () => void
   cancelAction: () => void
+  primaryOverride?: ReactNode
+  cancelOverride?: ReactNode
 }
 
 const ActionButtons: FC<ActionButtonProps> = ({
@@ -14,10 +16,16 @@ const ActionButtons: FC<ActionButtonProps> = ({
   primaryAction,
   cancelText,
   cancelAction,
+  primaryOverride,
+  cancelOverride,
 }) => (
   <div style={{ display: 'flex', marginBottom: '1em' }}>
-    <Button text={cancelText} action={cancelAction} primary={false} />
-    <Button text={primaryText} action={primaryAction} primary={true} />
+    {cancelOverride ?? (
+      <Button text={cancelText} action={cancelAction} primary={false} />
+    )}
+    {primaryOverride ?? (
+      <Button text={primaryText} action={primaryAction} primary={true} />
+    )}
   </div>
 )
 

@@ -8,7 +8,7 @@ interface Props<T> {
   isSelected: boolean
 }
 
-const ExtraButton = <T,>({ option, modal, isSelected }: Props<T>) => {
+const ModalButton = <T,>({ option, modal, isSelected }: Props<T>) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   return (
@@ -31,4 +31,4 @@ const ExtraButton = <T,>({ option, modal, isSelected }: Props<T>) => {
   )
 }
 
-export default ExtraButton
+export default ModalButton
