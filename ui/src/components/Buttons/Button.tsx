@@ -1,9 +1,9 @@
 import { FC } from 'react'
 
 interface Props {
-  text: string
-  action: () => void
-  primary: boolean
+  text?: string
+  action?: () => void
+  primary?: boolean
 }
 
 const Button: FC<Props> = ({ text, action, primary }) => {

@@ -1,31 +1,24 @@
 import { FC, useState } from 'react'
-import { Option } from '../../types/types.ts'
 import { ModalTriggerProps } from '../Modal/Modal.tsx'
+import '../Buttons/Button.css'
+import Button from './Button.tsx'
 
-interface Props<T> {
-  option: Option<T>
+interface Props {
+  title: string
   modal: FC<ModalTriggerProps>
-  isSelected: boolean
+  primary: boolean
 }
 
-const ModalButton = <T,>({ option, modal, isSelected }: Props<T>) => {
+const ModalButton: FC<Props> = ({ title, modal, primary }) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   return (
     <>
-      <button
-        className={`modal-button ${isSelected ? 'selected' : ''}`}
-        onClick={() => setIsModalOpen(true)}
-      >
-        <div className={'modal-button-elements'}>
-          <img
-            className={'modal-button-image'}
-            src={option.imageSrc}
-            alt={option.title}
-          />
-          <div>{option.title}</div>
-        </div>
-      </button>
+      <Button
+        text={title}
+        action={() => setIsModalOpen(true)}
+        primary={primary}
+      />
       {modal({ isModalOpen, setIsModalOpen })}
     </>
   )

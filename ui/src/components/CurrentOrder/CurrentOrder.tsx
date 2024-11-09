@@ -1,8 +1,8 @@
 import { useOrderStore } from '../../data/orderState.ts'
-import './OverallOrder.css'
+import './CurrentOrder.css'
 import { ORDER_MAP } from '../../data/orderOptions.ts'
 
-const OverallOrder = () => {
+const CurrentOrder = () => {
   const { overallOrder } = useOrderStore()
   return (
     <div className={'overall-order-container'}>
@@ -22,4 +22,4 @@ const OverallOrder = () => {
   )
 }
 
-export default OverallOrder
+export default CurrentOrder

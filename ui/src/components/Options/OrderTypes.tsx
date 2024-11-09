@@ -3,7 +3,7 @@ import { ORDER_MAP } from '../../data/orderOptions.ts'
 import { OrderType } from '../../types/types.ts'
 import { DEFAULT_ORDER, useOrderStore } from '../../data/orderState.ts'
 
-const OrderOptionTypes = () => {
+const OrderTypes = () => {
   const { setOrder } = useOrderStore()
 
   const handleCardClick = (orderType: OrderType) => {
@@ -21,4 +21,4 @@ const OrderOptionTypes = () => {
   )
 }
 
-export default OrderOptionTypes
+export default OrderTypes

@@ -3,10 +3,10 @@ import './Button.css'
 import Button from './Button.tsx'
 
 export interface ActionButtonProps {
-  primaryText: string
-  cancelText: string
-  primaryAction: () => void
-  cancelAction: () => void
+  primaryText?: string
+  cancelText?: string
+  primaryAction?: () => void
+  cancelAction?: () => void
   primaryOverride?: ReactNode
   cancelOverride?: ReactNode
 }

@@ -2,8 +2,10 @@ import './OrderPlacePage.css'
 import Banner from '../../components/Banner.tsx'
 import { useOrderStore } from '../../data/orderState.ts'
 import SelectionCard from '../../components/Selection/SelectionCard.tsx'
-import OrderOptionTypes from '../../components/OrderOptionTypes/OrderOptionTypes.tsx'
+import OrderTypes from '../../components/Options/OrderTypes.tsx'
 import ActionButtons from '../../components/Buttons/ActionButtons.tsx'
+import ModalButton from '../../components/Buttons/ModalButton.tsx'
+import CurrentOrderModal from '../../components/CurrentOrder/CurrentOrderModal.tsx'
 
 const OrderPlacePage = () => {
   const { order, clearOrders } = useOrderStore()
@@ -23,12 +25,17 @@ const OrderPlacePage = () => {
               alignItems: 'center',
             }}
           >
-            <OrderOptionTypes />
+            <OrderTypes />
             <ActionButtons
-              primaryText={'Finalize'}
               cancelText={'Clear'}
-              primaryAction={() => {}}
               cancelAction={clearOrders}
+              primaryOverride={
+                <ModalButton
+                  primary={true}
+                  title={'Finalize'}
+                  modal={CurrentOrderModal}
+                />
+              }
             />
           </div>
         )}
