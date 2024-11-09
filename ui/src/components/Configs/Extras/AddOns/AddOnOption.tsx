@@ -1,4 +1,4 @@
-import './Selections.css'
+import '../../../Selection/Selections.css'
 import { Option } from '../../../../types/types.ts'
 
 interface Props<T> {
@@ -7,7 +7,7 @@ interface Props<T> {
   selectedValues: Set<T>
 }
 
-const SelectionOption = <T,>({ option, onClick, selectedValues }: Props<T>) => {
+const AddOnOption = <T,>({ option, onClick, selectedValues }: Props<T>) => {
   const { imageSrc, title, value } = option
 
   return (
@@ -23,4 +23,4 @@ const SelectionOption = <T,>({ option, onClick, selectedValues }: Props<T>) => {
   )
 }
 
-export default SelectionOption
+export default AddOnOption

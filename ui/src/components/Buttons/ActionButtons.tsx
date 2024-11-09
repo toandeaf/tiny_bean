@@ -1,4 +1,6 @@
 import { FC } from 'react'
+import './Button.css'
+import Button from './Button.tsx'
 
 export interface ActionButtonProps {
   primaryText: string
@@ -14,18 +16,8 @@ const ActionButtons: FC<ActionButtonProps> = ({
   cancelAction,
 }) => (
   <div style={{ display: 'flex', marginBottom: '1em' }}>
-    <button
-      className={`button button-negative button-shadow`}
-      onClick={cancelAction}
-    >
-      {cancelText}
-    </button>
-    <button
-      className={`button button-primary button-shadow`}
-      onClick={primaryAction}
-    >
-      {primaryText}
-    </button>
+    <Button text={cancelText} action={cancelAction} primary={false} />
+    <Button text={primaryText} action={primaryAction} primary={true} />
   </div>
 )
 

@@ -1,10 +1,10 @@
 import { FC } from 'react'
 import { useOrderStore } from '../../data/orderState.ts'
-import Selections from '../Configs/Extras/Selections/Selections.tsx'
+import Selections from './Selections.tsx'
 import Extras from '../Configs/Extras/Extras.tsx'
 import { MILKS, SHOTS } from '../../data/addOnOptions.ts'
 import './SelectionCard.css'
-import ActionButtons from '../ActionButtons.tsx'
+import ActionButtons from '../Buttons/ActionButtons.tsx'
 import SelectionCardBanner from './SelectionCardBanner.tsx'
 
 const SelectionCard: FC = () => {

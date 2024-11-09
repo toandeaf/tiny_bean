@@ -11,10 +11,12 @@ const OrderOptionTypes = () => {
   }
 
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-      {Array.from(ORDER_MAP.values()).map((option) => (
-        <Card key={option.title} option={option} onClick={handleCardClick} />
-      ))}
+    <div>
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+        {Array.from(ORDER_MAP.values()).map((option) => (
+          <Card key={option.title} option={option} onClick={handleCardClick} />
+        ))}
+      </div>
     </div>
   )
 }

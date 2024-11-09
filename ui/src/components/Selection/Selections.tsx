@@ -1,6 +1,6 @@
-import SelectionOption from './SelectionOption.tsx'
+import AddOnOption from '../Configs/Extras/AddOns/AddOnOption.tsx'
 import './Selections.css'
-import { Option } from '../../../../types/types.ts'
+import { Option } from '../../types/types.ts'
 import { useEffect, useState } from 'react'
 
 interface Props<T> {
@@ -27,7 +27,7 @@ const Selections = <T,>({
       <div>{title}</div>
       <div className={'add-on-section-options'}>
         {options.map((option) => (
-          <SelectionOption
+          <AddOnOption
             key={option.title}
             option={option}
             onClick={onClick}

@@ -1,16 +1,16 @@
 import Modal from '../../../Modal/Modal.tsx'
 import { MISCELLANEOUS, SYRUPS } from '../../../../data/addOnOptions.ts'
-import Selections from './Selections.tsx'
-import ModalActionButtons from '../../../Modal/ModalActionButtons.tsx'
+import Selections from '../../../Selection/Selections.tsx'
 import { useOrderStore } from '../../../../data/orderState.ts'
 import { useEffect, useState } from 'react'
+import ActionButtons from '../../../Buttons/ActionButtons.tsx'
 
 interface Props {
   isModalOpen: boolean
   setIsModalOpen: (value: boolean) => void
 }
 
-const SelectionModal = ({ isModalOpen, setIsModalOpen }: Props) => {
+const AddOnsModal = ({ isModalOpen, setIsModalOpen }: Props) => {
   const { order, setField } = useOrderStore()
   const [selectedExtras, setSelectedExtras] = useState<Set<string>>(
     new Set(order?.extras)
@@ -52,18 +52,20 @@ const SelectionModal = ({ isModalOpen, setIsModalOpen }: Props) => {
         selectedOptions={selectedExtras}
       />
 
-      <ModalActionButtons
-        primaryText={'Ok'}
-        primaryAction={() => {
-          setIsModalOpen(false)
-        }}
-        cancelText={'Clear'}
-        cancelAction={() => {
-          setField('extras', [])
-        }}
-      />
+      <div className={'modal-buttons'}>
+        <ActionButtons
+          primaryText={'Ok'}
+          primaryAction={() => {
+            setIsModalOpen(false)
+          }}
+          cancelText={'Clear'}
+          cancelAction={() => {
+            setField('extras', [])
+          }}
+        />
+      </div>
     </Modal>
   )
 }
 
-export default SelectionModal
+export default AddOnsModal

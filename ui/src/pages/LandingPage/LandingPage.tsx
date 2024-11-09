@@ -1,5 +1,5 @@
-import LinkButton from '../components/LinkButton.tsx'
-import tinyBeanLogo from '../assets/coffee-bean.png'
+import LinkButton from '../../components/Buttons/LinkButton.tsx'
+import tinyBeanLogo from '../../assets/coffee-bean.png'
 
 const LandingPage = () => (
   <div className={'container'}>

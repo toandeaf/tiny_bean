@@ -1,9 +1,9 @@
 import './Extras.css'
 import addOns from '../../../assets/addons.png'
-import SelectionModal from './Selections/SelectionModal.tsx'
+import AddOnsModal from './AddOns/AddOnsModal.tsx'
 import note from '../../../assets/notepad.png'
 import NoteModal from './Notes/NoteModal.tsx'
-import ModalButton from '../../Modal/ModalButton.tsx'
+import ModalButton from '../../Buttons/ModalButton.tsx'
 import { useOrderStore } from '../../../data/orderState.ts'
 
 const Extras = () => {
@@ -18,7 +18,7 @@ const Extras = () => {
         <ModalButton
           key={'Add-ons'}
           option={{ title: 'Add-ons', imageSrc: addOns, value: 'add-ons' }}
-          modal={SelectionModal}
+          modal={AddOnsModal}
           isSelected={order.extras.length > 0}
         />
         <ModalButton

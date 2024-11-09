@@ -16,6 +16,7 @@ interface OrderState {
 
   addOrder: (order: Order) => void
   removeOrder: (order: Order) => void
+  clearOrders: () => void
   setOrder: (order: Order | null) => void
   setField: <K extends keyof Order>(key: K, value: Order[K]) => void
 }
@@ -37,6 +38,8 @@ export const useOrderStore = create<OrderState>((set) => ({
       // TODO
       return state
     }),
+
+  clearOrders: () => set({ overallOrder: [] }),
 
   setOrder: (order) => set({ order }),
   setField: (key, value) =>
