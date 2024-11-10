@@ -26,6 +26,7 @@ const NoteModal: FC<ModalTriggerProps> = ({ isModalOpen, setIsModalOpen }) => {
           cancelText={'Clear'}
           cancelAction={() => {
             setNote('')
+            setField('notes', '')
             setIsModalOpen(false)
           }}
         />

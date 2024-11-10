@@ -27,12 +27,13 @@ export const useOrderStore = create<OrderState>((set) => ({
 
   addOrder: (order) =>
     set((state) => {
-      const newOverallOrder = [...state.currentOrder, order]
-      return { ...state, overallOrder: newOverallOrder }
+      state.currentOrder.push(order)
+      return state
     }),
 
-  removeOrder: () =>
+  removeOrder: (order) =>
     set((state) => {
+      console.log(order)
       // TODO - Implement removeOrder
       return state
     }),

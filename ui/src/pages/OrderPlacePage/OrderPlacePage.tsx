@@ -19,7 +19,7 @@ const OrderPlacePage = () => {
         ) : (
           <div className={'order-types-container'}>
             <OrderTypes />
-            {currentOrder.length > 0 && (
+            {!!currentOrder.length && (
               <ActionButtons
                 cancelText={'Clear'}
                 cancelAction={clearOrders}

@@ -1,15 +1,12 @@
 import ActionButtons from '../Buttons/ActionButtons.tsx'
 import Modal, { ModalTriggerProps } from '../Modal/Modal.tsx'
 import { FC } from 'react'
-import { useOrderStore } from '../../data/orderState.ts'
 import CurrentOrder from './CurrentOrder.tsx'
 
 const CurrentOrderModal: FC<ModalTriggerProps> = ({
   isModalOpen,
   setIsModalOpen,
 }) => {
-  const { clearOrders } = useOrderStore()
-
   return (
     <Modal
       isOpen={isModalOpen}
@@ -22,13 +19,12 @@ const CurrentOrderModal: FC<ModalTriggerProps> = ({
         <ActionButtons
           primaryText={'Dispatch order'}
           primaryAction={() => {
-            // setField('notes', note)
             // TODO dispatch order to server
             setIsModalOpen(false)
           }}
           cancelText={'Back'}
           cancelAction={() => {
-            clearOrders()
+            // clearOrders()
             setIsModalOpen(false)
           }}
         />

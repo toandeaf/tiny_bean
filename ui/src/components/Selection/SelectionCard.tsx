@@ -35,7 +35,7 @@ const SelectionCard: FC = () => {
       <ActionButtons
         primaryText={'Add to order'}
         primaryAction={() => {
-          addOrder(order)
+          addOrder({ ...order })
           setOrder(null)
         }}
         cancelText={'Clear'}
