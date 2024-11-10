@@ -8,7 +8,7 @@ import ModalButton from '../../components/Buttons/ModalButton.tsx'
 import CurrentOrderModal from '../../components/CurrentOrder/CurrentOrderModal.tsx'
 
 const OrderPlacePage = () => {
-  const { order, clearOrders } = useOrderStore()
+  const { order, clearOrders, overallOrder } = useOrderStore()
 
   return (
     <>
@@ -19,17 +19,19 @@ const OrderPlacePage = () => {
         ) : (
           <div className={'order-types-container'}>
             <OrderTypes />
-            <ActionButtons
-              cancelText={'Clear'}
-              cancelAction={clearOrders}
-              primaryOverride={
-                <ModalButton
-                  primary={true}
-                  title={'Finalize'}
-                  modal={CurrentOrderModal}
-                />
-              }
-            />
+            {overallOrder.length > 0 && (
+              <ActionButtons
+                cancelText={'Clear'}
+                cancelAction={clearOrders}
+                primaryOverride={
+                  <ModalButton
+                    primary={true}
+                    title={'Finalize'}
+                    modal={CurrentOrderModal}
+                  />
+                }
+              />
+            )}
           </div>
         )}
       </div>
