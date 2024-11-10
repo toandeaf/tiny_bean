@@ -4,7 +4,7 @@ import AddOnsModal from './AddOns/AddOnsModal.tsx'
 import note from '../../../assets/notepad.png'
 import NoteModal from './Notes/NoteModal.tsx'
 import { useOrderStore } from '../../../data/orderState.ts'
-import OptionModal from '../../Options/OptionModal.tsx'
+import OptionModal from '../OptionModal.tsx'
 
 const Extras = () => {
   const { order } = useOrderStore()

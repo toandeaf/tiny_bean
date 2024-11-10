@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import tinyBeanLogo from '../assets/coffee-bean.png'
+import tinyBeanLogo from '../../assets/coffee-bean.png'
 import './Banner.css'
 
 const Banner = () => {

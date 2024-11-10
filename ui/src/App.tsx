@@ -1,5 +1,5 @@
 import './App.css'
-import Routing from './components/Routing.tsx'
+import Routing from './components/Routing/Routing.tsx'
 
 const App = () => <Routing />
 

@@ -1,5 +1,5 @@
 import './OrderPlacePage.css'
-import Banner from '../../components/Banner.tsx'
+import Banner from '../../components/Banner/Banner.tsx'
 import { useOrderStore } from '../../data/orderState.ts'
 import SelectionCard from '../../components/Selection/SelectionCard.tsx'
 import OrderTypes from '../../components/Options/OrderTypes.tsx'
@@ -17,14 +17,7 @@ const OrderPlacePage = () => {
         {order ? (
           <SelectionCard />
         ) : (
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
+          <div className={'order-types-container'}>
             <OrderTypes />
             <ActionButtons
               cancelText={'Clear'}
