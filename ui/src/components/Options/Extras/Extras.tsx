@@ -14,8 +14,6 @@ const Extras = () => {
 
   if (!order) return null
 
-  console.log(isNoteSelected)
-  
   return (
     <div className={'extras-container'}>
       <span>Extras</span>
