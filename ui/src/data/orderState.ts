@@ -11,7 +11,7 @@ export const DEFAULT_ORDER: Order = {
 }
 
 interface OrderState {
-  overallOrder: Array<Order>
+  currentOrder: Array<Order>
   order: Order | null
 
   addOrder: (order: Order) => void
@@ -22,24 +22,22 @@ interface OrderState {
 }
 
 export const useOrderStore = create<OrderState>((set) => ({
-  overallOrder: [],
+  currentOrder: [],
   order: null,
 
   addOrder: (order) =>
     set((state) => {
-      const newOverallOrder = [...state.overallOrder, order]
+      const newOverallOrder = [...state.currentOrder, order]
       return { ...state, overallOrder: newOverallOrder }
     }),
 
-  removeOrder: (order) =>
+  removeOrder: () =>
     set((state) => {
-      console.log(order)
-      console.log(state.overallOrder)
-      // TODO
+      // TODO - Implement removeOrder
       return state
     }),
 
-  clearOrders: () => set({ overallOrder: [] }),
+  clearOrders: () => set({ currentOrder: [] }),
 
   setOrder: (order) => set({ order }),
   setField: (key, value) =>

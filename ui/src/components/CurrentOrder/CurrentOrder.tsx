@@ -3,10 +3,10 @@ import './CurrentOrder.css'
 import { ORDER_MAP } from '../../data/orderOptions.ts'
 
 const CurrentOrder = () => {
-  const { overallOrder } = useOrderStore()
+  const { currentOrder } = useOrderStore()
   return (
     <div className={'overall-order-container'}>
-      {overallOrder.map((order, index) => {
+      {currentOrder.map((order, index) => {
         return (
           <div className={'overall-order-entry'} key={order.type + ' ' + index}>
             <img
