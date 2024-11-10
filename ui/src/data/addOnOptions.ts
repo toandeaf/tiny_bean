@@ -5,6 +5,7 @@ import vanilla from '../assets/vanilla.png'
 import cream from '../assets/cream.png'
 import chocolate from '../assets/chocolate.png'
 import decaf from '../assets/decaf.png'
+import no_milk from '../assets/no_milk.png'
 import milk_blue from '../assets/milk_blue.png'
 import milk_red from '../assets/milk_red.png'
 import oats from '../assets/oats.png'
@@ -34,6 +35,7 @@ export const MISCELLANEOUS: Array<Option<string>> = [
 ]
 
 export const MILKS: Array<Option<MilkType>> = [
+  { imageSrc: no_milk, title: 'None', value: MilkType.NONE },
   { imageSrc: milk_blue, title: 'Whole', value: MilkType.WHOLE },
   {
     imageSrc: milk_red,
