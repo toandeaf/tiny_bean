@@ -1,9 +1,4 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tinyBean</title>
-    <style>
+ <div><style>
         .title-container {
             display: flex;
             align-items: center;
@@ -17,14 +12,11 @@
             height: 50px;
         }
     </style>
-</head>
-<body>
     <div class="title-container">
         <div class="title">tinyBean</div>
         <img src="ui/public/images/coffee-bean.png" alt="Tiny Bean" class="image">
     </div>
-</body>
-</html>
+</div>
 
 ### Description
 
