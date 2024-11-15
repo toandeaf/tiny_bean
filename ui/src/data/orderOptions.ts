@@ -1,9 +1,9 @@
-import americano from '../assets/americano.png'
-import espresso from '../assets/espresso.png'
-import cappucino from '../assets/cappucino.png'
-import lattee from '../assets/latte.png'
-import icedlatte from '../assets/icedlatte.png'
-import matcha from '../assets/matcha.png'
+import americano from '/images/americano.png'
+import espresso from '/images/espresso.png'
+import cappucino from '/images/cappucino.png'
+import lattee from '/images/latte.png'
+import icedlatte from '/images/icedlatte.png'
+import matcha from '/images/matcha.png'
 import { Option, OrderType } from '../types/types.ts'
 
 export const ORDER_MAP: Map<OrderType, Option<OrderType>> = new Map([

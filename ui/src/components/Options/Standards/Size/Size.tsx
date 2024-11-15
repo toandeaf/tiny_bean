@@ -1,8 +1,7 @@
-// import '../../../Configs/Configs.css'
 import { useState } from 'react'
-import takeway_s from '../../../../assets/takeway_s.png'
-import takeway_m from '../../../../assets/takeway_m.png'
-import takeway_l from '../../../../assets/takeway_l.png'
+import takeway_s from '/images/takeway_s.png'
+import takeway_m from '/images/takeway_m.png'
+import takeway_l from '/images/takeway_l.png'
 
 import { Size as OrderSize } from '../../../../types/types.ts'
 import './Size.css'
