@@ -1,67 +1,59 @@
-use axum::{http::StatusCode, routing::get, serve, Json, Router};
-use serde::{Deserialize, Serialize};
-use std::env;
-use std::path::Path;
-use std::string::ToString;
-use tokio::net::TcpListener;
-use tower_http::services::{ServeDir, ServeFile};
+mod api;
+mod generic;
+mod test;
+
+use crate::api::{initialize_api_router, initialize_listener, initialize_static_assets};
+use axum::{serve, Router};
+use std::env::args;
+
+const DEFAULT_PORT: &str = "3000";
 
 #[tokio::main]
 async fn main() {
-    let args: Vec<String> = env::args().collect();
-    let static_dir_arg = args
-        .get(1)
-        .expect("Please provide a static directory in the CLI arguments");
+    #[cfg(not(feature = "dev"))]
+    {
+        initialize_server().await;
+    }
 
-    let fallback_port: &String = &"3000".to_string();
-    let port_arg = args.get(2).unwrap_or(fallback_port);
+    #[cfg(feature = "dev")]
+    {
+        initialize_dev_server().await;
+    }
+}
 
-    let static_assets = ServeDir::new(static_dir_arg);
+async fn initialize_server() {
+    let (static_dir_arg, port_arg) = get_command_line_args();
 
-    let index_file = ServeFile::new(Path::new(static_dir_arg).join("index.html"));
+    let (static_assets, index_file) = initialize_static_assets(&static_dir_arg);
 
+    let api_router = initialize_api_router();
     let router = Router::new()
-        .nest_service("/", index_file)
         .nest_service("/static", static_assets)
-        .route("/users", get(get_user).post(create_user))
-        .fallback_service(ServeFile::new(Path::new(static_dir_arg).join("index.html")));
+        .nest("/api", api_router)
+        .fallback_service(index_file);
 
-    let address = format!("0.0.0.0:{}", port_arg);
-
-    let listener = TcpListener::bind(address)
-        .await
-        .expect("Failed to bind to port 3000");
-
-    println!("Initializing server on port 3000");
+    let listener = initialize_listener(&port_arg).await;
 
     serve(listener, router).await.expect("Server failed");
 }
 
-async fn get_user() -> (StatusCode, Json<User>) {
-    let user = User {
-        id: 1337,
-        username: "Jake Toan".to_string(),
-    };
+async fn initialize_dev_server() {
+    let api_router = initialize_api_router();
 
-    (StatusCode::OK, Json(user))
+    let router = Router::new().nest("/api", api_router);
+    let listener = initialize_listener(DEFAULT_PORT).await;
+
+    serve(listener, router).await.expect("Server failed");
 }
 
-async fn create_user(Json(payload): Json<CreateUser>) -> (StatusCode, Json<User>) {
-    let user = User {
-        id: 1337,
-        username: payload.username,
-    };
+fn get_command_line_args() -> (String, String) {
+    let args: Vec<String> = args().collect();
+    let static_dir_arg = args
+        .get(1)
+        .expect("Please provide a static directory in the CLI arguments");
+    let port_arg = args
+        .get(2)
+        .expect("Please provide a port in the CLI arguments");
 
-    (StatusCode::CREATED, Json(user))
-}
-
-#[derive(Deserialize)]
-struct CreateUser {
-    username: String,
-}
-
-#[derive(Serialize)]
-struct User {
-    id: u64,
-    username: String,
+    (static_dir_arg.to_string(), port_arg.to_string())
 }
