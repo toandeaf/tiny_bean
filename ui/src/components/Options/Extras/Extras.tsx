@@ -3,7 +3,7 @@ import addOns from '/images/addons.png'
 import AddOnsModal from './AddOns/AddOnsModal.tsx'
 import note from '/images/notepad.png'
 import NoteModal from './Notes/NoteModal.tsx'
-import { useOrderStore } from '../../../data/orderState.ts'
+import { useOrderStore } from 'data/orderState.ts'
 import OptionModal from '../OptionModal.tsx'
 import { useMemo } from 'react'
 

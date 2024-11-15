@@ -1,5 +1,5 @@
 import './Card.css'
-import { Option } from '../../types/types.ts'
+import { Option } from 'types/types.ts'
 import CounterBadge from './CounterBadge.tsx'
 
 export interface CardProps<T> {

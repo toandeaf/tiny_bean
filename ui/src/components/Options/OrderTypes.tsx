@@ -1,7 +1,7 @@
 import Card from '../Card/Card.tsx'
-import { ORDER_MAP } from '../../data/orderOptions.ts'
-import { OrderType } from '../../types/types.ts'
-import { DEFAULT_ORDER, useOrderStore } from '../../data/orderState.ts'
+import { ORDER_MAP } from 'data/orderOptions.ts'
+import { OrderType } from 'types/types.ts'
+import { DEFAULT_ORDER, useOrderStore } from 'data/orderState.ts'
 
 const OrderTypes = () => {
   const { setOrder, currentOrder } = useOrderStore()

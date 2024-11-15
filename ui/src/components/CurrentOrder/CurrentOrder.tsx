@@ -1,6 +1,6 @@
-import { useOrderStore } from '../../data/orderState.ts'
+import { useOrderStore } from 'data/orderState.ts'
 import './CurrentOrder.css'
-import { ORDER_MAP } from '../../data/orderOptions.ts'
+import { ORDER_MAP } from 'data/orderOptions.ts'
 
 const CurrentOrder = () => {
   const { currentOrder } = useOrderStore()

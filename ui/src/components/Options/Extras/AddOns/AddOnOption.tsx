@@ -1,5 +1,5 @@
-import '../../../Selection/Selections.css'
-import { Option } from '../../../../types/types.ts'
+import 'components/Selection/Selections.css'
+import { Option } from 'types/types.ts'
 
 interface Props<T> {
   option: Option<T>

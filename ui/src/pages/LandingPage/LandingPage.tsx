@@ -1,4 +1,4 @@
-import LinkButton from '../../components/Buttons/LinkButton.tsx'
+import LinkButton from 'components/Buttons/LinkButton.tsx'
 import tinyBeanLogo from '/images/coffee-bean.png'
 
 const LandingPage = () => (

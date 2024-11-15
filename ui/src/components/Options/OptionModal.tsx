@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import { Option } from '../../types/types.ts'
+import { Option } from 'types/types.ts'
 import { ModalTriggerProps } from '../Modal/Modal.tsx'
 import '../Buttons/Button.css'
 

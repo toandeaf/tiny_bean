@@ -1,8 +1,8 @@
-import Modal, { ModalTriggerProps } from '../../../Modal/Modal.tsx'
+import Modal, { ModalTriggerProps } from 'components/Modal/Modal.tsx'
 import { FC, useState } from 'react'
 import Notes from './Notes.tsx'
-import { useOrderStore } from '../../../../data/orderState.ts'
-import ActionButtons from '../../../Buttons/ActionButtons.tsx'
+import { useOrderStore } from 'data/orderState.ts'
+import ActionButtons from 'components/Buttons/ActionButtons.tsx'
 
 const NoteModal: FC<ModalTriggerProps> = ({ isModalOpen, setIsModalOpen }) => {
   const [note, setNote] = useState('')

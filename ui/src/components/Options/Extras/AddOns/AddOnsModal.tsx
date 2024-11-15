@@ -1,9 +1,9 @@
-import Modal from '../../../Modal/Modal.tsx'
-import { MISCELLANEOUS, SYRUPS } from '../../../../data/addOnOptions.ts'
-import Selections from '../../../Selection/Selections.tsx'
-import { useOrderStore } from '../../../../data/orderState.ts'
+import Modal from 'components/Modal/Modal.tsx'
+import { MISCELLANEOUS, SYRUPS } from 'data/addOnOptions.ts'
+import Selections from 'components/Selection/Selections.tsx'
+import { useOrderStore } from 'data/orderState.ts'
 import { useEffect, useState } from 'react'
-import ActionButtons from '../../../Buttons/ActionButtons.tsx'
+import ActionButtons from 'components/Buttons/ActionButtons.tsx'
 
 interface Props {
   isModalOpen: boolean

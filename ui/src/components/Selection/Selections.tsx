@@ -1,6 +1,6 @@
 import AddOnOption from '../Options/Extras/AddOns/AddOnOption.tsx'
 import './Selections.css'
-import { Option } from '../../types/types.ts'
+import { Option } from 'types/types.ts'
 import { useEffect, useState } from 'react'
 
 interface Props<T> {
