@@ -1,5 +1,5 @@
 import { create } from 'zustand/index'
-import { MilkType, Order, OrderType, Size } from '../types/types.ts'
+import { MilkType, Order, OrderType, Size } from 'types/types.ts'
 
 export const DEFAULT_ORDER: Order = {
   type: OrderType.AMERICANO,

@@ -11,7 +11,7 @@ import milk_red from '/images/milk_red.png'
 import oats from '/images/oats.png'
 import almond from '/images/almond.png'
 
-import { MilkType, Option } from '../types/types.ts'
+import { MilkType, Option } from 'types/types.ts'
 
 export const SYRUPS: Array<Option<string>> = [
   { imageSrc: caramel, title: 'Caramel', value: 'Caramel' },

@@ -1,6 +1,6 @@
 import { FC, useState } from 'react'
-import { ModalTriggerProps } from '../Modal/Modal.tsx'
-import '../Buttons/Button.css'
+import { ModalTriggerProps } from 'components/Modal/Modal.tsx'
+import 'components/Buttons/Button.css'
 import Button from './Button.tsx'
 
 interface Props {

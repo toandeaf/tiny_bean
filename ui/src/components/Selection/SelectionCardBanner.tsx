@@ -1,6 +1,6 @@
 import { FC, useMemo } from 'react'
 import './SelectionCardBanner.css'
-import Size from '../Options/Standards/Size/Size.tsx'
+import Size from 'components/Options/Standards/Size/Size.tsx'
 import { ORDER_MAP } from 'data/orderOptions.ts'
 import { Order } from 'types/types.ts'
 

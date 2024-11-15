@@ -4,7 +4,7 @@ import cappucino from '/images/cappucino.png'
 import lattee from '/images/latte.png'
 import icedlatte from '/images/icedlatte.png'
 import matcha from '/images/matcha.png'
-import { Option, OrderType } from '../types/types.ts'
+import { Option, OrderType } from 'types/types.ts'
 
 export const ORDER_MAP: Map<OrderType, Option<OrderType>> = new Map([
   [

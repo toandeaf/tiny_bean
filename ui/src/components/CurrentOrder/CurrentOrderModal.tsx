@@ -1,5 +1,5 @@
-import ActionButtons from '../Buttons/ActionButtons.tsx'
-import Modal, { ModalTriggerProps } from '../Modal/Modal.tsx'
+import ActionButtons from 'components/Buttons/ActionButtons.tsx'
+import Modal, { ModalTriggerProps } from 'components/Modal/Modal.tsx'
 import { FC } from 'react'
 import CurrentOrder from './CurrentOrder.tsx'
 

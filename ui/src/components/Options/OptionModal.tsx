@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 import { Option } from 'types/types.ts'
-import { ModalTriggerProps } from '../Modal/Modal.tsx'
-import '../Buttons/Button.css'
+import { ModalTriggerProps } from 'components/Modal/Modal.tsx'
+import 'components/Buttons/Button.css'
 
 interface Props<T> {
   option: Option<T>

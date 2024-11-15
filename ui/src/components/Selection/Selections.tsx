@@ -1,4 +1,4 @@
-import AddOnOption from '../Options/Extras/AddOns/AddOnOption.tsx'
+import AddOnOption from 'components/Options/Extras/AddOns/AddOnOption.tsx'
 import './Selections.css'
 import { Option } from 'types/types.ts'
 import { useEffect, useState } from 'react'

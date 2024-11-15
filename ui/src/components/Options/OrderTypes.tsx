@@ -1,4 +1,4 @@
-import Card from '../Card/Card.tsx'
+import Card from 'components/Card/Card.tsx'
 import { ORDER_MAP } from 'data/orderOptions.ts'
 import { OrderType } from 'types/types.ts'
 import { DEFAULT_ORDER, useOrderStore } from 'data/orderState.ts'
