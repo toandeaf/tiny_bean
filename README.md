@@ -1,6 +1,4 @@
-####
-
-<img alt="banner.png" height="50" src="ui/progress/banner.png" width="1000"/>
+# tinyBean
 
 ### Description
 
