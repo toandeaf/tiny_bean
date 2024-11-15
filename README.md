@@ -1,22 +1,6 @@
- <div><style>
-        .title-container {
-            display: flex;
-            align-items: center;
-        }
-        .title {
-            font-size: 2em;
-            margin-right: 10px;
-        }
-        .image {
-            width: 50px;
-            height: 50px;
-        }
-    </style>
-    <div class="title-container">
-        <div class="title">tinyBean</div>
-        <img src="ui/public/images/coffee-bean.png" alt="Tiny Bean" class="image">
-    </div>
-</div>
+####
+
+<img alt="banner.png" height="50" src="ui/progress/banner.png" width="1000"/>
 
 ### Description
 
