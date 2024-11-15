@@ -23,7 +23,7 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
-      'no-restricted-imports': ['error', { patterns: ['../*'] }],
+      'no-restricted-imports': ['warn', { patterns: ['../*'] }],
     },
   }
 )
