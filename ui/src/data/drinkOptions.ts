@@ -4,55 +4,55 @@ import cappucino from '/images/cappucino.png'
 import lattee from '/images/latte.png'
 import icedlatte from '/images/icedlatte.png'
 import matcha from '/images/matcha.png'
-import { Option, OrderType } from 'types/types.ts'
+import { DrinkType, Option } from 'types/types.ts'
 
-export const ORDER_MAP: Map<OrderType, Option<OrderType>> = new Map([
+export const DRINK_TYPE_MAP: Map<DrinkType, Option<DrinkType>> = new Map([
   [
-    OrderType.AMERICANO,
+    DrinkType.AMERICANO,
     {
       imageSrc: americano,
       title: 'Americano',
-      value: OrderType.AMERICANO,
+      value: DrinkType.AMERICANO,
     },
   ],
   [
-    OrderType.ESPRESSO,
+    DrinkType.ESPRESSO,
     {
       imageSrc: espresso,
       title: 'Espresso',
-      value: OrderType.ESPRESSO,
+      value: DrinkType.ESPRESSO,
     },
   ],
   [
-    OrderType.CAPPUCCINO,
+    DrinkType.CAPPUCCINO,
     {
       imageSrc: cappucino,
       title: 'Cappuccino',
-      value: OrderType.CAPPUCCINO,
+      value: DrinkType.CAPPUCCINO,
     },
   ],
   [
-    OrderType.LATTE,
+    DrinkType.LATTE,
     {
       imageSrc: lattee,
       title: 'Latte',
-      value: OrderType.LATTE,
+      value: DrinkType.LATTE,
     },
   ],
   [
-    OrderType.ICED_LATTE,
+    DrinkType.ICED_LATTE,
     {
       imageSrc: icedlatte,
       title: 'Iced Latte',
-      value: OrderType.ICED_LATTE,
+      value: DrinkType.ICED_LATTE,
     },
   ],
   [
-    OrderType.MATCHA,
+    DrinkType.MATCHA,
     {
       imageSrc: matcha,
       title: 'Matcha',
-      value: OrderType.MATCHA,
+      value: DrinkType.MATCHA,
     },
   ],
 ])

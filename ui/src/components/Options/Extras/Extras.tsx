@@ -8,11 +8,17 @@ import OptionModal from 'components/Options/OptionModal.tsx'
 import { useMemo } from 'react'
 
 const Extras = () => {
-  const { order } = useOrderStore()
-  const isAddOnSelected = useMemo(() => !!order?.extras.length, [order?.extras])
-  const isNoteSelected = useMemo(() => !!order?.notes.length, [order?.notes])
+  const { currentDrink } = useOrderStore()
+  const isAddOnSelected = useMemo(
+    () => !!currentDrink?.extras.length,
+    [currentDrink?.extras]
+  )
+  const isNoteSelected = useMemo(
+    () => !!currentDrink?.notes.length,
+    [currentDrink?.notes]
+  )
 
-  if (!order) return null
+  if (!currentDrink) return null
 
   return (
     <div className={'extras-container'}>

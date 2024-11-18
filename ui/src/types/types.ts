@@ -4,16 +4,26 @@ export interface Option<T> {
   value: T
 }
 
-export interface Order {
-  type: OrderType
+export interface Drink {
+  type: DrinkType
   numberOfShots: number
   milkType: MilkType
   size: Size
-  extras: Array<string>
+  extras: Array<Extra>
   notes: string
 }
 
-export enum OrderType {
+export enum Extra {
+  CARAMEL = 'Caramel',
+  HAZELNUT = 'Hazelnut',
+  MINT = 'Mint',
+  VANILLA = 'Vanilla',
+  CREAM = 'Cream',
+  CHOCOLATE = 'Chocolate',
+  DECAF = 'Decaf',
+}
+
+export enum DrinkType {
   AMERICANO = 'Americano',
   ESPRESSO = 'Espresso',
   CAPPUCCINO = 'Cappuccino',

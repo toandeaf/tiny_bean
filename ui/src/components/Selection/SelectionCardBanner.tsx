@@ -1,15 +1,15 @@
 import { FC, useMemo } from 'react'
 import './SelectionCardBanner.css'
 import Size from 'components/Options/Standards/Size/Size.tsx'
-import { ORDER_MAP } from 'data/orderOptions.ts'
-import { Order } from 'types/types.ts'
+import { DRINK_TYPE_MAP } from '../../data/drinkOptions.ts'
+import { Drink } from 'types/types.ts'
 
 interface Props {
-  order: Order
+  drink: Drink
 }
 
-const SelectionCardBanner: FC<Props> = ({ order }) => {
-  const option = useMemo(() => ORDER_MAP.get(order.type), [order])
+const SelectionCardBanner: FC<Props> = ({ drink }) => {
+  const option = useMemo(() => DRINK_TYPE_MAP.get(drink.type), [drink])
 
   return (
     <div className={'card-banner'}>

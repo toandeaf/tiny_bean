@@ -11,25 +11,25 @@ interface Props {
 }
 
 const AddOnsModal = ({ isModalOpen, setIsModalOpen }: Props) => {
-  const { order, setField } = useOrderStore()
+  const { currentDrink, setField } = useOrderStore()
   const [selectedExtras, setSelectedExtras] = useState<Set<string>>(
-    new Set(order?.extras)
+    new Set(currentDrink?.extras)
   )
 
   useEffect(() => {
-    setSelectedExtras(new Set(order?.extras))
-  }, [order?.extras])
+    setSelectedExtras(new Set(currentDrink?.extras))
+  }, [currentDrink?.extras])
 
-  if (!order) return null
+  if (!currentDrink) return null
 
   const handleExtras = (extra: string) => {
-    if (order.extras.includes(extra)) {
+    if (currentDrink.extras.includes(extra)) {
       setField(
         'extras',
-        order.extras.filter((e) => e !== extra)
+        currentDrink.extras.filter((e) => e !== extra)
       )
     } else {
-      setField('extras', [...order.extras, extra])
+      setField('extras', [...currentDrink.extras, extra])
     }
   }
 

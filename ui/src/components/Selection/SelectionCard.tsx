@@ -8,26 +8,26 @@ import ActionButtons from 'components/Buttons/ActionButtons.tsx'
 import SelectionCardBanner from './SelectionCardBanner.tsx'
 
 const SelectionCard: FC = () => {
-  const { order, setOrder, setField, addOrder } = useOrderStore()
+  const { currentDrink, setDrink, setField, addDrink } = useOrderStore()
 
-  if (!order) return null
+  if (!currentDrink) return null
 
   return (
     <div className="selection-card">
       <div className={'selection-card-content'}>
-        <SelectionCardBanner order={order} />
+        <SelectionCardBanner drink={currentDrink} />
 
         <Selections
           title={'Shots'}
           options={SHOTS}
           onClick={(val) => setField('numberOfShots', val)}
-          selectedOptions={new Set([order.numberOfShots])}
+          selectedOptions={new Set([currentDrink.numberOfShots])}
         />
         <Selections
           title={'Milk'}
           options={MILKS}
           onClick={(val) => setField('milkType', val)}
-          selectedOptions={new Set([order.milkType])}
+          selectedOptions={new Set([currentDrink.milkType])}
         />
         <Extras />
       </div>
@@ -35,11 +35,11 @@ const SelectionCard: FC = () => {
       <ActionButtons
         primaryText={'Add to order'}
         primaryAction={() => {
-          addOrder({ ...order })
-          setOrder(null)
+          addDrink({ ...currentDrink })
+          setDrink(null)
         }}
         cancelText={'Clear'}
-        cancelAction={() => setOrder(null)}
+        cancelAction={() => setDrink(null)}
       />
     </div>
   )

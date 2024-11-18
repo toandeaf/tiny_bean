@@ -1,8 +1,8 @@
 import { create } from 'zustand/index'
-import { MilkType, Order, OrderType, Size } from 'types/types.ts'
+import { Drink, DrinkType, MilkType, Size } from 'types/types.ts'
 
-export const DEFAULT_ORDER: Order = {
-  type: OrderType.AMERICANO,
+export const DEFAULT_DRINK: Drink = {
+  type: DrinkType.AMERICANO,
   numberOfShots: 2, // Changed to number
   milkType: MilkType.WHOLE,
   size: Size.MEDIUM,
@@ -11,39 +11,39 @@ export const DEFAULT_ORDER: Order = {
 }
 
 interface OrderState {
-  currentOrder: Array<Order>
-  order: Order | null
+  orderDrinks: Array<Drink>
+  currentDrink: Drink | null
 
-  addOrder: (order: Order) => void
-  removeOrder: (order: Order) => void
-  clearOrders: () => void
-  setOrder: (order: Order | null) => void
-  setField: <K extends keyof Order>(key: K, value: Order[K]) => void
+  addDrink: (drink: Drink) => void
+  removeDrink: (drink: Drink) => void
+  clearDrinks: () => void
+  setDrink: (drink: Drink | null) => void
+  setField: <K extends keyof Drink>(key: K, value: Drink[K]) => void
 }
 
 export const useOrderStore = create<OrderState>((set) => ({
-  currentOrder: [],
-  order: null,
+  orderDrinks: [],
+  currentDrink: null,
 
-  addOrder: (order) =>
+  addDrink: (order) =>
     set((state) => {
-      state.currentOrder.push(order)
+      state.orderDrinks.push(order)
       return state
     }),
 
-  removeOrder: (order) =>
+  removeDrink: (order) =>
     set((state) => {
       console.log(order)
       // TODO - Implement removeOrder
       return state
     }),
 
-  clearOrders: () => set({ currentOrder: [] }),
+  clearDrinks: () => set({ orderDrinks: [] }),
 
-  setOrder: (order) => set({ order }),
+  setDrink: (drink) => set({ currentDrink: drink }),
   setField: (key, value) =>
     set((state) => {
-      if (!state.order) return state
-      return { order: { ...state.order, [key]: value } }
+      if (!state.currentDrink) return state
+      return { currentDrink: { ...state.currentDrink, [key]: value } }
     }),
 }))

@@ -11,26 +11,26 @@ import milk_red from '/images/milk_red.png'
 import oats from '/images/oats.png'
 import almond from '/images/almond.png'
 
-import { MilkType, Option } from 'types/types.ts'
+import { Extra, MilkType, Option } from 'types/types.ts'
 
-export const SYRUPS: Array<Option<string>> = [
-  { imageSrc: caramel, title: 'Caramel', value: 'Caramel' },
-  { imageSrc: hazelnut, title: 'Hazelnut', value: 'Hazelnut' },
+export const SYRUPS: Array<Option<Extra>> = [
+  { imageSrc: caramel, title: 'Caramel', value: Extra.CARAMEL },
+  { imageSrc: hazelnut, title: 'Hazelnut', value: Extra.HAZELNUT },
   {
     imageSrc: mint,
     title: 'Mint',
-    value: 'Mint',
+    value: Extra.MINT,
   },
-  { imageSrc: vanilla, title: 'Vanilla', value: 'Vanilla' },
+  { imageSrc: vanilla, title: 'Vanilla', value: Extra.VANILLA },
 ]
 
-export const MISCELLANEOUS: Array<Option<string>> = [
-  { imageSrc: cream, title: 'Cream', value: 'Cream' },
-  { imageSrc: chocolate, title: 'Chocolate', value: 'Chocolate' },
+export const MISCELLANEOUS: Array<Option<Extra>> = [
+  { imageSrc: cream, title: 'Cream', value: Extra.CREAM },
+  { imageSrc: chocolate, title: 'Chocolate', value: Extra.CHOCOLATE },
   {
     imageSrc: decaf,
     title: 'Decaf',
-    value: 'Decaf',
+    value: Extra.DECAF,
   },
 ]
 
