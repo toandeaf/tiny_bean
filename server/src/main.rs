@@ -1,4 +1,5 @@
 mod api;
+mod db;
 mod generic;
 mod test;
 
