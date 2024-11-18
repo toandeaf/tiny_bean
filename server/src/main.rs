@@ -1,6 +1,8 @@
 mod api;
 mod db;
 mod generic;
+mod orders;
+mod storage;
 mod test;
 
 use crate::api::initialize_server;

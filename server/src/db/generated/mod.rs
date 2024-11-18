@@ -1,3 +1,3 @@
 mod imports;
-mod models;
-mod schema;
+pub(crate) mod models;
+pub(crate) mod schema;

@@ -1,7 +1,6 @@
 CREATE TABLE IF NOT EXISTS orders
 (
-    id            INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-    order_status  VARCHAR(50) NOT NULL
+    id            INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS order_statuses
@@ -17,7 +16,7 @@ CREATE TABLE IF NOT EXISTS order_status_updates
     updated_at      TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (order_id, order_status_id),
     FOREIGN KEY (order_id) REFERENCES orders (id),
-    FOREIGN KEY (order_status_id) REFERENCES order_status (id)
+    FOREIGN KEY (order_status_id) REFERENCES order_statuses (id)
 );
 
 CREATE TABLE IF NOT EXISTS order_drinks

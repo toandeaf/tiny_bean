@@ -1,4 +1,5 @@
 use crate::api::initialize_static_assets;
+use crate::orders::{OrderRouter, OrderRouterImpl};
 use crate::test::TestRouter;
 use crate::test::TestRouterImpl;
 use axum::{serve, Router};
@@ -62,5 +63,7 @@ async fn initialize_listener(port: &str) -> TcpListener {
 }
 
 fn initialize_api_router() -> Router {
-    Router::new().nest("/test", TestRouterImpl::get_test_router())
+    Router::new()
+        .nest("/test", TestRouterImpl::get_test_router())
+        .nest("/order", OrderRouterImpl::get_order_router())
 }

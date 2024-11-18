@@ -78,7 +78,6 @@ pub struct OrderStatuse {
 #[derive(Serialize, Deserialize, Queryable, Debug)]
 pub struct Order {
     pub id: i32,
-    pub order_status: String,
 }
 
 #[derive(Serialize, Deserialize, Queryable, Debug)]

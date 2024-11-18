@@ -79,7 +79,6 @@ diesel::table! {
 diesel::table! {
     orders (id) {
         id -> Integer,
-        order_status -> Text,
     }
 }
 
@@ -92,12 +91,14 @@ diesel::table! {
 
 diesel::joinable!(drink_extras -> drinks (drink_id));
 diesel::joinable!(drink_extras -> extras (extra_id));
+diesel::joinable!(drink_status_updates -> drink_statuses (drink_status_id));
 diesel::joinable!(drink_status_updates -> drinks (drink_id));
 diesel::joinable!(drinks -> drink_types (drink_type_id));
 diesel::joinable!(drinks -> milk_types (milk_type_id));
 diesel::joinable!(drinks -> size (size_id));
 diesel::joinable!(order_drinks -> drinks (drink_id));
 diesel::joinable!(order_drinks -> orders (order_id));
+diesel::joinable!(order_status_updates -> order_statuses (order_status_id));
 diesel::joinable!(order_status_updates -> orders (order_id));
 
 diesel::allow_tables_to_appear_in_same_query!(
