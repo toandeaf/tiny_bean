@@ -1,10 +1,10 @@
-CREATE TABLE IF NOT EXISTS drink_type
+CREATE TABLE IF NOT EXISTS drink_types
 (
     id    INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     value VARCHAR(50)                       NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS milk_type
+CREATE TABLE IF NOT EXISTS milk_types
 (
     id    INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     value VARCHAR(50)                       NOT NULL
@@ -24,8 +24,8 @@ CREATE TABLE IF NOT EXISTS drinks
     milk_type_id    INTEGER                           NOT NULL,
     size_id         INTEGER                           NOT NULL,
     notes           TEXT,
-    FOREIGN KEY (drink_type_id) REFERENCES drink_type (id),
-    FOREIGN KEY (milk_type_id) REFERENCES milk_type (id),
+    FOREIGN KEY (drink_type_id) REFERENCES drink_types (id),
+    FOREIGN KEY (milk_type_id) REFERENCES milk_types (id),
     FOREIGN KEY (size_id) REFERENCES size (id)
 );
 
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS drink_extras
     FOREIGN KEY (extra_id) REFERENCES extras (id)
 );
 
-CREATE TABLE IF NOT EXISTS drink_status
+CREATE TABLE IF NOT EXISTS drink_statuses
 (
     id    INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     value VARCHAR(50)                       NOT NULL

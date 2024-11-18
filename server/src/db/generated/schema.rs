@@ -8,13 +8,6 @@ diesel::table! {
 }
 
 diesel::table! {
-    drink_status (id) {
-        id -> Integer,
-        value -> Text,
-    }
-}
-
-diesel::table! {
     drink_status_updates (drink_id, drink_status_id) {
         drink_id -> Integer,
         drink_status_id -> Integer,
@@ -23,7 +16,14 @@ diesel::table! {
 }
 
 diesel::table! {
-    drink_type (id) {
+    drink_statuses (id) {
+        id -> Integer,
+        value -> Text,
+    }
+}
+
+diesel::table! {
+    drink_types (id) {
         id -> Integer,
         value -> Text,
     }
@@ -48,9 +48,38 @@ diesel::table! {
 }
 
 diesel::table! {
-    milk_type (id) {
+    milk_types (id) {
         id -> Integer,
         value -> Text,
+    }
+}
+
+diesel::table! {
+    order_drinks (order_id, drink_id) {
+        order_id -> Integer,
+        drink_id -> Integer,
+    }
+}
+
+diesel::table! {
+    order_status_updates (order_id, order_status_id) {
+        order_id -> Integer,
+        order_status_id -> Integer,
+        updated_at -> Timestamp,
+    }
+}
+
+diesel::table! {
+    order_statuses (id) {
+        id -> Integer,
+        value -> Text,
+    }
+}
+
+diesel::table! {
+    orders (id) {
+        id -> Integer,
+        order_status -> Text,
     }
 }
 
@@ -63,19 +92,25 @@ diesel::table! {
 
 diesel::joinable!(drink_extras -> drinks (drink_id));
 diesel::joinable!(drink_extras -> extras (extra_id));
-diesel::joinable!(drink_status_updates -> drink_status (drink_status_id));
 diesel::joinable!(drink_status_updates -> drinks (drink_id));
-diesel::joinable!(drinks -> drink_type (drink_type_id));
-diesel::joinable!(drinks -> milk_type (milk_type_id));
+diesel::joinable!(drinks -> drink_types (drink_type_id));
+diesel::joinable!(drinks -> milk_types (milk_type_id));
 diesel::joinable!(drinks -> size (size_id));
+diesel::joinable!(order_drinks -> drinks (drink_id));
+diesel::joinable!(order_drinks -> orders (order_id));
+diesel::joinable!(order_status_updates -> orders (order_id));
 
 diesel::allow_tables_to_appear_in_same_query!(
     drink_extras,
-    drink_status,
     drink_status_updates,
-    drink_type,
+    drink_statuses,
+    drink_types,
     drinks,
     extras,
-    milk_type,
+    milk_types,
+    order_drinks,
+    order_status_updates,
+    order_statuses,
+    orders,
     size,
 );

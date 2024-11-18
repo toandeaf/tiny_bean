@@ -1,8 +1,8 @@
 DROP TABLE IF EXISTS drink_extras;
-DROP TABLE IF EXISTS drink_status;
+DROP TABLE IF EXISTS drink_statuses;
 DROP TABLE IF EXISTS drink_status_updates;
-DROP TABLE IF EXISTS drink_type;
+DROP TABLE IF EXISTS drink_types;
 DROP TABLE IF EXISTS drinks;
 DROP TABLE IF EXISTS extras;
-DROP TABLE IF EXISTS milk_type;
+DROP TABLE IF EXISTS milk_types;
 DROP TABLE IF EXISTS size;
