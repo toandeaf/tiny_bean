@@ -3,16 +3,15 @@
 #![allow(unused)]
 #![allow(clippy::all)]
 
-
 use chrono::NaiveDateTime;
-#[derive(Serialize, Deserialize, Queryable, Debug, Identifiable)]
+#[derive(Serialize, Deserialize, Queryable, Debug, Identifiable, Insertable)]
 #[diesel(primary_key(drink_id, extra_id))]
 pub struct DrinkExtra {
     pub drink_id: i32,
     pub extra_id: i32,
 }
 
-#[derive(Serialize, Deserialize, Queryable, Debug, Identifiable)]
+#[derive(Serialize, Deserialize, Queryable, Debug, Identifiable, Insertable)]
 #[diesel(primary_key(drink_id, drink_status_id))]
 pub struct DrinkStatusUpdate {
     pub drink_id: i32,
@@ -32,7 +31,7 @@ pub struct DrinkType {
     pub value: String,
 }
 
-#[derive(Serialize, Deserialize, Queryable, Debug, Identifiable)]
+#[derive(Serialize, Deserialize, Queryable, Debug, Identifiable, Insertable)]
 pub struct Drink {
     pub id: i32,
     pub drink_type_id: i32,
@@ -54,14 +53,14 @@ pub struct MilkType {
     pub value: String,
 }
 
-#[derive(Serialize, Deserialize, Queryable, Debug, Identifiable)]
+#[derive(Serialize, Deserialize, Queryable, Debug, Identifiable, Insertable)]
 #[diesel(primary_key(order_id, drink_id))]
 pub struct OrderDrink {
     pub order_id: i32,
     pub drink_id: i32,
 }
 
-#[derive(Serialize, Deserialize, Queryable, Debug, Identifiable)]
+#[derive(Serialize, Deserialize, Queryable, Debug, Identifiable, Insertable)]
 #[diesel(primary_key(order_id, order_status_id))]
 pub struct OrderStatusUpdate {
     pub order_id: i32,

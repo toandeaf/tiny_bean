@@ -1,4 +1,4 @@
-use crate::generic::ServiceError;
+use crate::generic::{DrinkDTO, ServiceError};
 use crate::orders::storage::create_order;
 use crate::orders::{CreateOrderResponse, OrderService};
 
@@ -6,11 +6,12 @@ pub struct OrderServiceImpl {}
 
 impl OrderService for OrderServiceImpl {
     async fn create_order() -> Result<CreateOrderResponse, ServiceError> {
-        let res = create_order();
+        let drinks: Vec<DrinkDTO> = vec![];
+        let res = create_order(drinks);
 
         match res {
-            Some(response) => Ok(response),
-            None => Err(ServiceError::DatabaseError(
+            Ok(response) => Ok(response),
+            Err(e) => Err(ServiceError::DatabaseError(
                 "Failed to create order".to_string(),
             )),
         }

@@ -11,7 +11,7 @@ use serde::Serialize;
 
 #[derive(Serialize)]
 pub struct CreateOrderResponse {
-    pub message: String,
+    pub order_id: i32,
 }
 
 pub trait OrderRouter {

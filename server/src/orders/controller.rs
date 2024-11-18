@@ -16,9 +16,7 @@ impl OrderController for OrderControllerImpl {
             Ok(message) => (StatusCode::OK, Json(message)),
             Err(err) => (
                 status_code_from_error(&err),
-                Json(CreateOrderResponse {
-                    message: err.to_string(),
-                }),
+                Json(CreateOrderResponse { order_id: 0 }),
             ),
         }
     }
