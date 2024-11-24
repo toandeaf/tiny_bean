@@ -13,7 +13,7 @@ impl OrderController for OrderControllerImpl {
         let result = Self::OrderService::create_order().await;
 
         match result {
-            Ok(message) => (StatusCode::OK, Json(message)),
+            Ok(message) => (StatusCode::CREATED, Json(message)),
             Err(err) => (
                 status_code_from_error(&err),
                 Json(CreateOrderResponse { order_id: 0 }),

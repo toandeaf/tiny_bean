@@ -23,14 +23,14 @@ use r2d2::PooledConnection;
 
 pub fn create_order(new_drinks: Vec<DrinkDTO>) -> Result<CreateOrderResponse, Error> {
     let mut conn = get_connection();
-    let mut drink_vec: Vec<i32> = Vec::with_capacity(new_drinks.len());
-
+    let mut drink_vec: Vec<i32> = Vec::with_capacity(1);
+    
     conn.transaction(|trans_conn| {
-        for (index, new_drink) in new_drinks.iter().enumerate() {
+        for new_drink in new_drinks {
             let drink = persist_drink(trans_conn, new_drink)?;
 
             let new_drink_id = drink.id;
-            drink_vec[index] = new_drink_id;
+            drink_vec.push(new_drink_id);
         }
 
         let order = persist_order(trans_conn, drink_vec)?;
@@ -74,7 +74,7 @@ fn persist_order(
 
 fn persist_drink(
     conn: &mut PooledConnection<ConnectionManager<SqliteConnection>>,
-    new_drink: &DrinkDTO,
+    new_drink: DrinkDTO,
 ) -> QueryResult<Drink> {
     let drink = insert_into(drinks)
         .values((
