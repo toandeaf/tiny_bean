@@ -1,9 +1,10 @@
-use crate::db::generated::models::{
-    Drink, DrinkExtra, DrinkStatusUpdate, Order, OrderDrink, OrderStatusUpdate,
-};
+use crate::db::generated::models::{Drink, DrinkExtra, DrinkStatusUpdate, Order, OrderDrink, OrderStatusUpdate};
 use crate::db::generated::schema::drink_extras::dsl::drink_extras;
 use crate::db::generated::schema::drink_status_updates::dsl::drink_status_updates;
 use crate::db::generated::schema::drinks::dsl::drinks;
+use crate::db::generated::schema::drinks::{
+    drink_type_id, milk_type_id, notes, number_of_shots, size_id,
+};
 use crate::db::generated::schema::order_drinks::dsl::order_drinks;
 use crate::db::generated::schema::order_status_updates::dsl::order_status_updates;
 use crate::db::generated::schema::orders::dsl::orders;
@@ -17,7 +18,7 @@ use crate::storage::get_connection;
 use diesel::dsl::insert_into;
 use diesel::r2d2::ConnectionManager;
 use diesel::result::Error;
-use diesel::{Connection, QueryResult, RunQueryDsl, SqliteConnection};
+use diesel::{Connection, ExpressionMethods, QueryResult, RunQueryDsl, SqliteConnection};
 use r2d2::PooledConnection;
 
 pub fn create_order(new_drinks: Vec<DrinkDTO>) -> Result<CreateOrderResponse, Error> {
@@ -28,8 +29,8 @@ pub fn create_order(new_drinks: Vec<DrinkDTO>) -> Result<CreateOrderResponse, Er
         for (index, new_drink) in new_drinks.iter().enumerate() {
             let drink = persist_drink(trans_conn, new_drink)?;
 
-            let drink_id = drink.id;
-            drink_vec[index] = drink_id;
+            let new_drink_id = drink.id;
+            drink_vec[index] = new_drink_id;
         }
 
         let order = persist_order(trans_conn, drink_vec)?;
@@ -52,9 +53,9 @@ fn persist_order(
         .values(
             drink_ids
                 .iter()
-                .map(|drink_id| OrderDrink {
+                .map(|new_drink_id| OrderDrink {
                     order_id,
-                    drink_id: *drink_id,
+                    drink_id: *new_drink_id,
                 })
                 .collect::<Vec<OrderDrink>>(),
         )
@@ -75,27 +76,23 @@ fn persist_drink(
     conn: &mut PooledConnection<ConnectionManager<SqliteConnection>>,
     new_drink: &DrinkDTO,
 ) -> QueryResult<Drink> {
-    // TODO add models for new inserts
-    let drink_to_persist = Drink {
-        id: 0,
-        drink_type_id: match_drink_type_to_value(&new_drink.drink_type),
-        number_of_shots: new_drink.number_of_shots as i32,
-        milk_type_id: match_milk_type_to_value(&new_drink.milk_type),
-        size_id: match_size_to_value(&new_drink.size),
-        notes: new_drink.notes.clone(),
-    };
-
     let drink = insert_into(drinks)
-        .values(&drink_to_persist)
+        .values((
+            drink_type_id.eq(match_drink_type_to_value(&new_drink.drink_type)),
+            number_of_shots.eq(new_drink.number_of_shots as i32),
+            milk_type_id.eq(match_milk_type_to_value(&new_drink.milk_type)),
+            size_id.eq(match_size_to_value(&new_drink.size)),
+            notes.eq(&new_drink.notes),
+        ))
         .get_result::<Drink>(conn)?;
 
-    let drink_id = drink.id;
+    let new_drink_id = drink.id;
 
     if !new_drink.extras.is_empty() {
-        persist_drink_extras(conn, drink_id, &new_drink.extras)?;
+        persist_drink_extras(conn, new_drink_id, &new_drink.extras)?;
     }
 
-    persist_drink_status_update(conn, drink_id, DrinkStatusDTO::Pending)?;
+    persist_drink_status_update(conn, new_drink_id, DrinkStatusDTO::Pending)?;
 
     Ok(drink)
 }
@@ -128,6 +125,6 @@ fn persist_drink_extras(
         .collect::<Vec<DrinkExtra>>();
 
     insert_into(drink_extras)
-        .values(drink_extras_val)
+        .values(&drink_extras_val)
         .execute(conn)
 }

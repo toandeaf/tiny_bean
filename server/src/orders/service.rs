@@ -11,7 +11,7 @@ impl OrderService for OrderServiceImpl {
 
         match res {
             Ok(response) => Ok(response),
-            Err(e) => Err(ServiceError::DatabaseError(
+            Err(_e) => Err(ServiceError::DatabaseError(
                 "Failed to create order".to_string(),
             )),
         }

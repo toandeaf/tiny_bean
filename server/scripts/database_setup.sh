@@ -3,7 +3,7 @@
 # set pwd as src-tauri
 source .env
 
-GENERATED_DATA_DIR="./src/db/generated/models.rs"
+GENERATED_MODELS_FILE="./src/db/generated/models.rs"
 
 # Check if the diesel CLI is installed
 if ! command -v diesel &> /dev/null
@@ -23,11 +23,9 @@ fi
 diesel migration run
 
 # Generate the models file from the schema.rs file
-diesel_ext --model > "${GENERATED_DATA_DIR}"
+diesel_ext --model > "${GENERATED_MODELS_FILE}"
 
-# Add diesel imports to the generated models file
-echo '// Required to resolve imports.
-include!("imports.rs");' >> "${GENERATED_DATA_DIR}"
+sed -i '' 's/#!\[allow(clippy::all)\]/#!\[allow(clippy::all)\] \ninclude!("imports.rs");/g' "${GENERATED_MODELS_FILE}"
 
-# Search for the string "Queryable" and add "Serialize,Deserialize" before it
-sed -i '' 's/Queryable/Serialize, Deserialize, Queryable/g' "${GENERATED_DATA_DIR}"
+# Search for the string "Queryable" and add "Serialize,Deserialize,Insertable" before it
+sed -i '' 's/Queryable/Serialize, Deserialize, Insertable, Queryable/g' "${GENERATED_MODELS_FILE}"
